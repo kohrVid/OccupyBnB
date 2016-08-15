@@ -16,6 +16,9 @@ gem 'ejs'
 gem 'haml'
 gem 'nokogiri'
 gem 'devise', git: 'https://github.com/plataformatec/devise.git'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-instagram'
 gem 'cancancan'
 
 # Use Capistrano for deployment
