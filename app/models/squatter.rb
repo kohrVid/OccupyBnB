@@ -3,7 +3,7 @@ class Squatter < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, 
-	 :confirmable, :lockable, :omniauthable
+	 :confirmable, :omniauthable
   
   VALID_EMAIL_REGEX = /\A[^\.]+[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i 
   validates :username, presence: true, uniqueness: true
