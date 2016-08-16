@@ -1,0 +1,2 @@
+class Abode < ApplicationRecord
+end
