@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160815123327) do
+ActiveRecord::Schema.define(version: 20160815204357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "identities", force: :cascade do |t|
+    t.integer  "squatter_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["squatter_id"], name: "index_identities_on_squatter_id", using: :btree
+  end
 
   create_table "squatters", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -38,4 +47,5 @@ ActiveRecord::Schema.define(version: 20160815123327) do
     t.index ["reset_password_token"], name: "index_squatters_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "identities", "squatters"
 end

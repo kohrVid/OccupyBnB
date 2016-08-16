@@ -2,39 +2,37 @@ require 'rails_helper'
 
 RSpec.describe Squatter, type: :model do
   it "should create a new squatter with valid attributes" do
-    squatter = Squatter.new(FactoryGirl.attributes_for(:squatter, :first))
+    squatter = FactoryGirl.build(:squatter, :first)
     expect(squatter).to be_valid
   end
 
   describe "username" do
     it "should be present" do
-      squatter = Squatter.new(FactoryGirl.attributes_for(:squatter, :first, username: ""))
+      squatter = FactoryGirl.build(:squatter, :first, username: "")
       expect(squatter).to_not be_valid
     end
 
     it "should be unique" do
-      squatter = Squatter.create!(FactoryGirl.attributes_for(:squatter, :first))
-      squatter2 = Squatter.new(FactoryGirl.attributes_for(:squatter, :second, username: squatter.username))
+      squatter = FactoryGirl.create(:squatter, :first)
+      squatter2 = FactoryGirl.build(:squatter, :second, username: squatter.username)
       expect(squatter2).to_not be_valid
     end
   end
 
   describe "email" do
     it "should be present" do
-      squatter = Squatter.new(FactoryGirl.attributes_for(:squatter, :first, email: ""))
+      squatter = FactoryGirl.build(:squatter, :first, email: "")
       expect(squatter).to_not be_valid
     end
 
     it "should be unique" do
-      squatter = Squatter.create!(FactoryGirl.attributes_for(:squatter, :first))
-      squatter2 = Squatter.new(FactoryGirl.attributes_for(:squatter, :second, 
-							  email: squatter.email))
+      squatter = FactoryGirl.create(:squatter, :first)
+      squatter2 = FactoryGirl.build(:squatter, :second, email: squatter.email)
       expect(squatter2).to_not be_valid
     end
 
     it "must be no more than 255 characters long" do
-      squatter = Squatter.new(FactoryGirl.attributes_for(:squatter, :first, 
-							 email: "t"*242+"@occupybnb.com"))
+      squatter = FactoryGirl.build(:squatter, :first, email: "t"*242+"@occupybnb.com")
       expect(squatter).to_not be_valid
     end
     
@@ -43,8 +41,7 @@ RSpec.describe Squatter, type: :model do
                              12@example.com)
     valid_email_address.each do |email_address|
       it "must be a valid email address" do
-	squatter = Squatter.new(FactoryGirl.attributes_for(:squatter, :first, 
-							   email: email_address))
+	squatter = FactoryGirl.build(:squatter, :first, email: email_address)
 	expect(squatter).to be_valid
       end
     end
@@ -54,10 +51,16 @@ RSpec.describe Squatter, type: :model do
                                foo@bar..com)
     invalid_email_address.each do |email_address|
       it "must not be an invalid email address" do
-	squatter = Squatter.new(FactoryGirl.attributes_for(:squatter, :first, 
-							   email: email_address))
+	squatter = FactoryGirl.build(:squatter, :first, email: email_address)
 	expect(squatter).to_not be_valid
       end
+    end
+  end
+
+  describe "associations" do  
+    it "may have an identity" do
+      squatter = FactoryGirl.create(:squatter, :first)
+      expect(squatter).to respond_to(:identities)
     end
   end
 end
