@@ -26,6 +26,10 @@ When(/^they visit the log in page$/) do
   visit new_squatter_session_path
 end
 
-Then(/^they can log in$/) do
+Then(/^they can log in via twitter$/) do
   expect(page).to have_content("Successfully authenticated from Twitter account")
+end
+
+Then(/^they can log in via facebook$/) do
+  expect(page).to have_content("Successfully authenticated from Facebook account")
 end
