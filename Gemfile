@@ -40,6 +40,8 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'faker'
+  gem 'rails-controller-testing'
+  gem 'capybara'
 end
 
 group :development do
