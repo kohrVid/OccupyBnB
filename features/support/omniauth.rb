@@ -15,4 +15,11 @@ Before("@omniauth") do
     name: Faker::Internet.user_name
     }
   })
+  
+  OmniAuth.config.add_mock(:instagram, {
+    uid: "3244752254",
+    info: {
+    name: Faker::Internet.user_name
+    }
+  })
 end

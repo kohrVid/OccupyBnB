@@ -20,3 +20,12 @@ Feature: Omniauth
     And they visit the log in page
     And they click "Sign in with Facebook"
     Then they can log in via facebook
+  
+  @omniauth
+  Scenario: A squatter can link their account to instagram
+    When a squatter visits the edit account page
+    And they click "Link to my Instagram account"
+    And they log out
+    And they visit the log in page
+    And they click "Sign in with Instagram"
+    Then they can log in via instagram
