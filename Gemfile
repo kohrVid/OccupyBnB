@@ -10,13 +10,19 @@ gem 'jbuilder', '~> 2.5'
 gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem 'jquery-rails'
 gem 'sprockets', '>=3.0.0.beta'
 gem 'sprockets-es6'
 gem 'ejs'
 gem 'haml'
 gem 'nokogiri'
 gem 'devise', git: 'https://github.com/plataformatec/devise.git'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-instagram'
 gem 'cancancan'
+gem 'figaro'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -34,6 +40,8 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'faker'
+  gem 'rails-controller-testing'
+  gem 'capybara'
 end
 
 group :development do
