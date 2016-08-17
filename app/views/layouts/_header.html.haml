@@ -1,11 +1,12 @@
-%header.row-no-right-margin.m-5-bottom
-  #main-logo.display-block.text-centre
-    %span
-      OccupyB
-      %i.icon-CircledN>
-      B
-  %nav
-    %ul.display-inline.no-bullet
+%header.row-no-right-margin.m-5-bottom(role="banner")
+  .header-container
+    #main-logo.display-block.text-centre
+      %span
+        OccupyB
+        %i.icon-CircledN>
+        B
+  %nav(role="menu")
+    %ul.inline-list.no-bullet
       %li
         Go here?
       - unless !current_squatter

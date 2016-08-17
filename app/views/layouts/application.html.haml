@@ -4,9 +4,12 @@
     %meta{:charset => "UTF-8"}
     %title OccupyBnB
     = csrf_meta_tags
+    %link{ rel: "stylesheet", href: "http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"}
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
   %body
     = render "layouts/header"
     = render "layouts/alerts"
-    = yield
+    .row
+      .col--10-12-offset-1.col--mob-4-4
+        = yield

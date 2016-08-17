@@ -1,3 +1,9 @@
+@mixin anchor-text($colour) {
+  a:link, a:visited, a:hover, a:active { 
+    color: $colour !important;
+  }
+}
+
 @font-face {
   font-family: 'circledN';
   src:  asset-url('circledN/circledN.eot?41l2mg');
@@ -11,7 +17,7 @@
 
 .icon-CircledN:before {
   content: "\e900";
-  font-family: circledN;
+  font-family: circledN !important;
 }
 
 #main-logo {
@@ -27,4 +33,20 @@
 
 .text-centre {
   text-align: center;
+}
+
+.anchor-text-no-underline {
+  text-decoration: none;
+  &:link, &:visited, &:hover, &:active { 
+    text-decoration: none;
+  }
+}
+
+body {
+  font-family: $sans-serif;
+}
+
+nav {
+  color: $white;
+  @include anchor-text($white);
 }
