@@ -1,0 +1,13 @@
+%header.row-no-right-margin.m-5-bottom
+  #main-logo.display-block.text-centre
+    %span
+      OccupyB
+      %i.icon-CircledN>
+      B
+  %nav
+    %ul.display-inline.no-bullet
+      %li
+        Go here?
+      - unless !current_squatter
+        %li
+          = link_to "Log out", destroy_squatter_session_path, method: :delete

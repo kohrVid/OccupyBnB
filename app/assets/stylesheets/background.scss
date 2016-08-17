@@ -1,0 +1,15 @@
+header {
+  background-image: image-url("background.svg");
+  filter: hue-rotate(100deg);
+  color: hue-rotate(100deg);
+  height: 36rem;
+}
+
+nav {
+  position: absolute;
+  top: 36rem;
+  height: 3rem;
+  width: 100%;
+  background-color: $charcoal;
+  z-index: 10;
+}

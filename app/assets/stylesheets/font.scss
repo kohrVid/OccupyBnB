@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'circledN';
+  src:  asset-url('circledN/circledN.eot?41l2mg');
+  src:  asset-url('circledN/circledN.eot?41l2mg#iefix') format('embedded-opentype'),
+	asset-url('circledN/circledN.ttf?41l2mg') format('truetype'),
+	asset-url('circledN/circledN.woff?41l2mg') format('woff'),
+	asset-url('circledN/circledN.svg?41l2mg#circledN') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon-CircledN:before {
+  content: "\e900";
+  font-family: circledN;
+}
+
+#main-logo {
+  color: $primary-colour;
+  font-size: 6rem;
+  top: 0;
+  line-height: 30rem;
+  span {
+    background-color: #fff;
+    border-radius: 13%;
+  }
+}
+
+.text-centre {
+  text-align: center;
+}
