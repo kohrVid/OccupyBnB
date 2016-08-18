@@ -23,6 +23,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-instagram'
 gem 'cancancan'
 gem 'figaro'
+gem 'humanize_boolean'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
