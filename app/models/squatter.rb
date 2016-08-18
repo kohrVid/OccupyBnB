@@ -39,4 +39,8 @@ class Squatter < ApplicationRecord
   def email_verified?
     self.email && self.email !~ @email
   end
+
+  def admin?
+    self.type == "Admin"
+  end
 end

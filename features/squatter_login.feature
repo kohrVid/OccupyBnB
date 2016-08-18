@@ -1,6 +1,6 @@
 Feature: Squatter Login
   Background:
-    Given they have created their account
+    Given a squatter has created an account
   
   Scenario: A squatter can log in using their email address
     When they visit the log in page

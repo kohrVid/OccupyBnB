@@ -1,6 +1,6 @@
 Feature: Omniauth
   Background:
-    Given they have created their account
+    Given a squatter has created an account
     And they have logged in
   
   @omniauth

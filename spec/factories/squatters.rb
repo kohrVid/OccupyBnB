@@ -5,6 +5,7 @@ FactoryGirl.define do
       email Faker::Internet.email
       password "password"
       password_confirmation "password"
+      location Faker::Address.postcode
     end
     
     trait :second do
@@ -12,6 +13,7 @@ FactoryGirl.define do
       email Faker::Internet.email
       password "password"
       password_confirmation "password"
+      location Faker::Address.postcode
     end
   end
 end

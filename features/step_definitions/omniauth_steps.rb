@@ -1,4 +1,4 @@
-Given(/^they have created their account$/) do
+Given(/^a squatter has created an account$/) do
   @squatter = FactoryGirl.create(:squatter, :first)
   @squatter.confirm
 end
@@ -19,7 +19,7 @@ When(/^they click "([^"]*)"$/) do |button_name|
 end
 
 When(/^they log out$/) do
-  click_on "Log out"
+  click_on "Log Out"
 end
 
 When(/^they visit the log in page$/) do
