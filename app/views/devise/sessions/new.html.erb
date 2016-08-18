@@ -24,7 +24,7 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
-<%= render "devise/shared/omniauth_buttons" %>
+<%= render partial: "devise/shared/omniauth_buttons", locals: { action: "Sign in with" }  %>
 
 
 

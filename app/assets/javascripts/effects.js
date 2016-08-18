@@ -1,3 +1,4 @@
+"use strict";
 $(document).ready(function () {
   let hue = parseInt(Math.random() * 360);
   $(".header-container").css("filter", String(`hue-rotate(${ hue }deg)`));
