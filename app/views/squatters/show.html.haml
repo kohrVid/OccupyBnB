@@ -1,0 +1,7 @@
+%main(itemscope itemtype="https://schema.org/Person")
+  %h1(itemprop="name")= @squatter.username
+  - unless !(current_squatter == @squatter || current_squatter.admin?)
+    %p(itemprop="address")
+      %strong Location
+      %br
+      = @squatter.location

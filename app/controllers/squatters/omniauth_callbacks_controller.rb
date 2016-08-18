@@ -1,5 +1,4 @@
-class CallbacksController < Devise::OmniauthCallbacksController
-
+class Squatters::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def self.provides_callback_for(provider)
     class_eval %Q{
       def #{provider}
