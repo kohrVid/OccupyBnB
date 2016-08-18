@@ -70,5 +70,8 @@ $mobile-column-totals:(1, 2, 3, 4);
 
 @media screen and (max-width: 1023px) {
   @include mobile;
+  .hide-mobile {
+    display: none;
+  }
 }
 
