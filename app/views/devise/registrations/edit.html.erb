@@ -32,17 +32,11 @@
   </div>
 
   <div class="field">
-    <%# f.button "Link to my Twitter account" %>
-
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Link to my #{OmniAuth::Utils.camelize(provider)} account", omniauth_authorize_path(resource_name, provider) %><br />
-  <% end -%>
-<% end -%>
+    <%= render partial: "devise/shared/omniauth_buttons", locals: { action: "Link to" }  %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", class: "btn btn-primary" %>
   </div>
 <% end %>
 

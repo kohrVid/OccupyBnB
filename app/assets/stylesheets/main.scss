@@ -1,0 +1,21 @@
+$primary-colour: #ff1200;
+$secondary-colour: #929292;
+$default-colour: #010101;
+$charcoal: #302f2f;
+$white: #fff;
+
+$facebook-blue: #3b5998;
+$twitter-blue: #4099FF;
+$instagram-grey:#d7d4d4;
+
+$serif: "Times New Roman", times, serif;
+$sans-serif: Arial, sans-serif;
+
+
+@import "kohrVidGrid.scss";
+@import "normalize.css";
+@import "background.scss";
+@import "font.scss";
+@import "utility.scss";
+@import "margins.scss";
+@import "forms.scss";
