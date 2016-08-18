@@ -18,7 +18,11 @@ Rails.application.routes.draw do
     }
   end
 
-  resources :squatters, only: [:index, :show]
+  resources :squatters, only: [:index, :show] do
+    member do
+      get :submissions_pending_approval
+    end
+  end
 
   resources :abodes
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

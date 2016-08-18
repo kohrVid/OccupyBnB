@@ -1,0 +1,16 @@
+= form_for @abode, role: "form" do |f|
+  = f.hidden_field :submitted_by_id, value: current_squatter.id
+  %fieldset
+    = f.label :title, t("abode.title")
+    = f.text_field :title, "aria-labelledby": "title", tabindex: 1
+  %fieldset
+    = f.label :location, t("abode.location")
+    = f.text_area :location, rows: 5, cols: 25, "aria-labelledby": "location", tabindex: 2
+  %fieldset
+    = f.label :description, t("abode.description")
+    = f.text_area :description, rows: 10, cols: 25, "aria-labelledby": "description", tabindex: 3
+  %fieldset
+    = f.label :residential, t("abode.residential")
+    = f.check_box :residential, "aria-labelledby": "residential", tabindex: 4
+  %fieldset
+    = f.submit t("abode.submit"), class: "btn btn-primary"

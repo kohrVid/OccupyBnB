@@ -1,0 +1,28 @@
+%main.row(itemscope itemtype="https://schema.org/Place")
+  .col--10-12-offset-1.col--mob-4-4
+    %h1 Abode submissions pending approval
+
+    %table
+      %thead
+        %th
+          %strong= t("abode.title")
+        %th.hide-mobile
+          %strong= t("abode.description")
+        %th
+          %strong= t("abode.location")
+        %th
+          %strong= t("abode.residential")
+        %th
+          %strong= t("abode.submitted_at")
+      %tbody
+        - @pending_abodes.each do |abode|
+          %tr
+            %td= abode.title
+          %tr.hide-mobile
+            %td= abode.description
+          %tr
+            %td(itemprop="address")= abode.location
+          %tr
+            %td= abode.residential.humanize
+          %tr
+            %td= abode.created_at
