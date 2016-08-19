@@ -1,0 +1,77 @@
+/*****kohrVidGrid*****/
+
+@mixin set-columns($numerator, $denominator, $offset) {
+  $width: percentage(($numerator / $denominator) * 0.8);
+  $gutter: percentage((1.0 / $denominator) * 0.2);
+  $left: (percentage((1.0 / $denominator) * 0.8)+$gutter) * $offset;
+  width: $width;
+  display: inline-block;
+  margin-right: $gutter;
+  margin-left: $left;
+}
+$numerators:(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+$mobile-column-totals:(1, 2, 3, 4);
+
+.row {
+  width: 100%;
+  display: block;
+}
+
+.row-no-right-margin {
+  display: block;
+  width: 100%;
+  [class*='col--']:last-of-type {
+    margin-right: 0;
+    padding-right: 0;
+  }
+}
+
+@mixin desktop {
+  @each $numerator in $numerators {
+    @each $denominator in (6, 8, 9, 10, 11, 12) {
+      .col--#{$numerator}-#{$denominator} {
+	@include set-columns($numerator, $denominator, 0);
+      }
+      $offset: 1;
+      @while $offset <= ($denominator - $numerator) {
+	.col--#{$numerator}-#{$denominator}-offset-#{$offset} {
+	  @include set-columns($numerator, $denominator, $offset);
+	}
+	$offset: $offset + 1;
+      }
+    }
+  }
+}
+
+@mixin mobile {
+  @each $numerator in $mobile-column-totals {
+    @each $denominator in $mobile-column-totals {
+      .col--mob-#{$numerator}-#{$denominator} {
+	@include set-columns($numerator, $denominator, 0);
+	@if $numerator == $denominator{
+	  margin-left: 5% !important;
+	  margin-right: 0 !important;
+	}
+      }
+      $offset: 1;
+      @while $offset <= ($denominator - $numerator) {
+	.col--mob-#{$numerator}-#{$denominator}-offset-#{$offset} {
+	  @include set-columns($numerator, $denominator, $offset);
+	}
+	$offset: $offset + 1;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  @include desktop;
+}
+
+@media screen and (max-width: 1023px) {
+  @include mobile;
+  .hide-mobile {
+    display: none;
+  }
+}
+

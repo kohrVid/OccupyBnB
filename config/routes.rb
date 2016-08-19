@@ -1,9 +1,31 @@
 Rails.application.routes.draw do
-  devise_scope :squatter do
-    devise_for :squatters, controllers: { omniauth_callbacks: "callbacks" }
+  root to: 'pages#index'
+  resources :pages, only: [:index] do
+    collection do
+      get 'pages/help'
+      get 'pages/privacy'
+      get 'pages/tos'
+    end
   end
 
-  root to: "abodes#index"
-  resources :abodes
+  devise_scope :squatter do
+    devise_for :squatters, controllers: { 
+      sessions: "squatters/sessions",
+      registrations: "squatters/registrations",
+      passwords: "squatters/passwords",
+      confirmations: "squatters/confirmations",
+      omniauth_callbacks: "squatters/omniauth_callbacks" 
+    }
+  end
+
+  resources :squatters, only: [:index, :show] do
+    member do
+      get :submissions_pending_approval
+    end
+  end
+
+  resources :abodes do
+    resources :abode_images
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,2 +1,6 @@
-- @abodes.each do |abode|
-  = render partial: "abodes/abode", locals: { abode: abode }
+%main.row(itemscope itemtype="https://schema.org/Place")
+  .col--10-12-offset-1.col--mob-4-4
+    %h1 Abodes
+    %ul.no-bullet
+      - @abodes.each do |abode|
+        = render partial: "abodes/abode", locals: { abode: abode }

@@ -23,9 +23,13 @@ gem 'omniauth-twitter'
 gem 'omniauth-instagram'
 gem 'cancancan'
 gem 'figaro'
+gem 'humanize_boolean'
+gem 'carrierwave', git: 'https://github.com/carrierwaveuploader/carrierwave'
+gem 'mini_magick', '~> 3.8.0'
+gem 'fog'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+ gem 'capistrano-rails'#, group: :development
 
 group :test do
   gem 'selenium-webdriver'
@@ -53,3 +57,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :production do
+  gem 'aws-sdk'
+end

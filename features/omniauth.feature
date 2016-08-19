@@ -1,12 +1,12 @@
 Feature: Omniauth
   Background:
-    Given they have created their account
+    Given a squatter has created an account
     And they have logged in
   
   @omniauth
   Scenario: A squatter can link their account to twitter
     When a squatter visits the edit account page
-    And they click "Link to my Twitter account"
+    And they click "Link to Twitter"
     And they log out
     And they visit the log in page
     And they click "Sign in with Twitter"
@@ -15,7 +15,7 @@ Feature: Omniauth
   @omniauth
   Scenario: A squatter can link their account to facebook
     When a squatter visits the edit account page
-    And they click "Link to my Facebook account"
+    And they click "Link to Facebook"
     And they log out
     And they visit the log in page
     And they click "Sign in with Facebook"
@@ -24,7 +24,7 @@ Feature: Omniauth
   @omniauth
   Scenario: A squatter can link their account to instagram
     When a squatter visits the edit account page
-    And they click "Link to my Instagram account"
+    And they click "Link to Instagram"
     And they log out
     And they visit the log in page
     And they click "Sign in with Instagram"

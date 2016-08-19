@@ -1,0 +1,40 @@
+.field input {
+  border: 2px solid #dadada;
+  border-radius: 0.4rem;
+  &:focus { 
+    outline: none;
+    border-color: $secondary-colour;
+    box-shadow: 0 0 10px $secondary-colour;
+  }
+}
+
+.btn {
+  padding: 0.5rem;
+  margin: auto;
+  border: 0;
+  border-radius: 0.4rem;
+  text-align: center;
+  color: $white;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background: $primary-colour;
+}
+
+.btn-secondary {
+  background: $secondary-colour;
+}
+
+.btn-facebook {
+  background: $facebook-blue;
+}
+
+.btn-twitter {
+  background: $twitter-blue;
+}
+
+.btn-instagram {
+  background: $instagram-grey;
+}
+

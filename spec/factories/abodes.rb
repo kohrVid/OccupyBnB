@@ -5,6 +5,7 @@ FactoryGirl.define do
       description Faker::Lorem.paragraph
       location Faker::Address.postcode
       residential false
+      submitted_by { create(:squatter, :second) }
       approved true
     end    
     trait :unapproved do
@@ -12,6 +13,7 @@ FactoryGirl.define do
       description Faker::Lorem.paragraph
       location Faker::Address.postcode
       residential false
+      submitted_by { create(:squatter, :third) }
       approved false
     end    
   end
