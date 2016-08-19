@@ -6,6 +6,8 @@
       %thead
         %th
           %strong= t("abode.title")
+        %th
+          %strong= t("abode.images")
         %th.hide-mobile
           %strong= t("abode.description")
         %th
@@ -18,11 +20,11 @@
         - @pending_abodes.each do |abode|
           %tr
             %td= abode.title
-          %tr.hide-mobile
-            %td= abode.description
-          %tr
+            %td(itemprop="photo")
+              - unless abode.abode_images.empty?
+                = image_tag abode.abode_images[0].file_name.file.file,
+                width: "120rem", alt: "Abode Image"
+            %td.hide-mobile= abode.description
             %td(itemprop="address")= abode.location
-          %tr
             %td= abode.residential.humanize
-          %tr
             %td= abode.created_at

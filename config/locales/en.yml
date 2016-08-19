@@ -2,6 +2,7 @@ en:
   hello: "Hello world"
   abode:
     title: "Title"
+    images: "Images"
     location: "Location"
     description: "Description"
     residential: "Residential?"

@@ -1,16 +1,24 @@
 = form_for @abode, role: "form" do |f|
   = f.hidden_field :submitted_by_id, value: current_squatter.id
-  %fieldset
+  %fieldset.field
     = f.label :title, t("abode.title")
-    = f.text_field :title, "aria-labelledby": "title", tabindex: 1
-  %fieldset
+    = f.text_field :title, "aria-labelledby": "title", autofocus: true,
+      tabindex: 1
+  %fieldset.field
+    = f.label :abode_images, t("abode.images")
+    = f.fields_for :abode_images do |build|
+      = build.file_field :file_name, accept: "image/jpeg,image/gif,image/png",
+        "aria-labelledby": "photographs", tabindex: 2
+  %fieldset.field
     = f.label :location, t("abode.location")
-    = f.text_area :location, rows: 5, cols: 25, "aria-labelledby": "location", tabindex: 2
-  %fieldset
+    = f.text_area :location, rows: 5, cols: 25, "aria-labelledby": "location",
+    tabindex: 3
+  %fieldset.field
     = f.label :description, t("abode.description")
-    = f.text_area :description, rows: 10, cols: 25, "aria-labelledby": "description", tabindex: 3
-  %fieldset
+    = f.text_area :description, rows: 10, cols: 25, "aria-labelledby": "description",
+      tabindex: 4
+  %fieldset.field
     = f.label :residential, t("abode.residential")
-    = f.check_box :residential, "aria-labelledby": "residential", tabindex: 4
+    = f.check_box :residential, "aria-labelledby": "residential", tabindex: 5
   %fieldset
     = f.submit t("abode.submit"), class: "btn btn-primary"

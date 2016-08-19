@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818192358) do
+ActiveRecord::Schema.define(version: 20160818220820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "abode_images", force: :cascade do |t|
+    t.integer  "abode_id"
+    t.string   "file_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["abode_id"], name: "index_abode_images_on_abode_id", using: :btree
+  end
 
   create_table "abodes", force: :cascade do |t|
     t.string   "title"

@@ -6,6 +6,7 @@ class AbodesController < ApplicationController
 
   def new
     @abode = Abode.new
+    @abode.abode_images.build
   end
 
   def create
@@ -23,6 +24,8 @@ class AbodesController < ApplicationController
     def abode_params
       params.require(:abode).permit(:title, :location, :description,
 				    :residential, :submitted_by_id,
-				    :approved, :approved_by_id, :approved_at)
+				    :approved, :approved_by_id, :approved_at,
+				    abode_images_attributes: [:id, :file_name]
+				   )
     end
 end

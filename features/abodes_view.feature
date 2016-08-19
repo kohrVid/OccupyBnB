@@ -20,4 +20,10 @@ Feature: Abodes View
     And they click "Submit abode"
     Then are be able to see the abode in their list of submitted abodes
 
+  Scenario: A squatter can submit a new abode with an uploaded image
+    When they visit the new abode page
+    And they enter abode details with a picture
+    And they click "Submit abode"
+    Then are be able to see the abode's image in their list of submitted abodes
+
 
