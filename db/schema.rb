@@ -10,21 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818154104) do
+ActiveRecord::Schema.define(version: 20160818220820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "abode_images", force: :cascade do |t|
+    t.integer  "abode_id"
+    t.string   "file_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["abode_id"], name: "index_abode_images_on_abode_id", using: :btree
+  end
+
   create_table "abodes", force: :cascade do |t|
     t.string   "title"
-    t.boolean  "residential",                           default: false
+    t.boolean  "residential",                               default: false
     t.text     "location"
     t.text     "description"
-    t.decimal  "latitude",    precision: 20, scale: 14
-    t.decimal  "longitude",   precision: 20, scale: 14
-    t.boolean  "approved",                              default: false
-    t.datetime "created_at",                                            null: false
-    t.datetime "updated_at",                                            null: false
+    t.decimal  "latitude",        precision: 20, scale: 14
+    t.decimal  "longitude",       precision: 20, scale: 14
+    t.boolean  "approved",                                  default: false
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
+    t.integer  "submitted_by_id"
+    t.integer  "approved_by_id"
+    t.datetime "approved_at"
+    t.index ["approved_by_id"], name: "index_abodes_on_approved_by_id", using: :btree
+    t.index ["submitted_by_id"], name: "index_abodes_on_submitted_by_id", using: :btree
   end
 
   create_table "admins", force: :cascade do |t|

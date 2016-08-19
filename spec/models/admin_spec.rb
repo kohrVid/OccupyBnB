@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Admin, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "associations" do  
+    it "may have approved abodes" do
+      admin = FactoryGirl.create(:admin)
+      expect(admin).to respond_to(:approved_abodes)
+    end
+  end
 end

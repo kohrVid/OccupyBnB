@@ -62,5 +62,9 @@ RSpec.describe Squatter, type: :model do
       squatter = FactoryGirl.create(:squatter, :first)
       expect(squatter).to respond_to(:identities)
     end
+    it "may have submitted abodes" do
+      squatter = FactoryGirl.create(:squatter, :first)
+      expect(squatter).to respond_to(:submitted_abodes)
+    end
   end
 end
