@@ -31,6 +31,9 @@ When(/^they enter abode details with a picture$/) do
   find(:css, "#abode_residential").set(true)
 end
 
+When(/^they visit the abode's show page$/) do
+  visit abode_path(@approved_abode)
+end
 
 Then(/^they are able to see approved abodes$/) do
   expect(page).to have_content(@approved_abode.title)
@@ -50,4 +53,10 @@ Then(/^are be able to see the abode\'s image in their list of submitted abodes$/
   image_path = "uploads/abode_image/file_name/#{Abode.last.abode_images.first.id}/abode.jpg"
   expect(page).to have_css('img[alt="Abode Image"]')
   expect(page).to have_css('img[src*="' + image_path + '"]')
+end
+
+Then(/^they can see the abode details$/) do
+  expect(page).to have_content(@approved_abode.title)
+  expect(page).to have_content(@approved_abode.description)
+  expect(page).to have_content(@approved_abode.location)
 end
