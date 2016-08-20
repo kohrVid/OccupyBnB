@@ -5,7 +5,7 @@ FactoryGirl.define do
       email Faker::Internet.email
       password "password"
       password_confirmation "password"
-      location "58183 USA"
+      location "London, E6 6ER"
     end
     
     trait :second do

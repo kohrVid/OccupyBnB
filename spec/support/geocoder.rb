@@ -1,36 +1,5 @@
 Geocoder.configure(:lookup => :test)
 Geocoder::Lookup::Test.add_stub(
-  "West Ham, London", [
-    {
-      'latitude'     => 51.538265,
-      'longitude'    => 0.014525,
-      'address'      => 'West Ham, London E15, UK',
-      'city'	    =>  'London',
-      'state'        => 'England',
-      'postal_code'   => 'E15',
-      'country'      => 'United Kingdom',
-      'country_code' => 'GB'
-    }
-  ]
-)
-
-Geocoder::Lookup::Test.add_stub(
-  "58183 USA", [
-    {
-      'latitude'     => 45.7467062,
-      'longitude'    => -123.2754162,
-      'address'      => '58183 US-26, Timber, OR 97144, USA
-',
-      'city'	    =>  'Timber',
-      'state'        => 'Oregon',
-      'postal_code'   => '97144',
-      'country'      => 'United States',
-      'country_code' => 'USA'
-    }
-  ]
-)
-
-Geocoder::Lookup::Test.add_stub(
   "32950-7123", [
     {
       'latitude'     => 27.9873577,
@@ -86,6 +55,70 @@ Geocoder::Lookup::Test.add_stub(
       'postal_code'   => '77625',
       'country'      => 'United States',
       'country_code' => 'USA'
+    }
+  ]
+)
+
+## Squatter
+Geocoder::Lookup::Test.add_stub(
+  "London, E6 6ER", [
+    {
+      'latitude'     => 51.53187880000001,
+      'longitude'    => 0.05422730000000001,
+      'address'      => 'London E6 6ER, UK',
+      'city'	    =>  'London',
+      'state'        => 'England',
+      'postal_code'   => 'E6 6ER',
+      'country'      => 'United Kingdom',
+      'country_code' => 'GB'
+    }
+  ]
+)
+
+## <5km
+Geocoder::Lookup::Test.add_stub(
+  "West Ham, London", [
+    {
+      'latitude'     => 51.538265,
+      'longitude'    => 0.014525,
+      'address'      => 'West Ham, London E15, UK',
+      'city'	    =>  'London',
+      'state'        => 'England',
+      'postal_code'   => 'E15',
+      'country'      => 'United Kingdom',
+      'country_code' => 'GB'
+    }
+  ]
+)
+
+## <10km
+Geocoder::Lookup::Test.add_stub(
+  "Liverpool Street, London", [
+    {
+      'latitude'     => 51.5175794,
+      'longitude'    => -0.0830363,
+      'address'      => 'Liverpool St, London EC2M, UK',
+      'city'	    =>  'London',
+      'state'        => 'England',
+      'postal_code'   => 'EC2M',
+      'country'      => 'United Kingdom',
+      'country_code' => 'GB'
+    }
+  ]
+)
+
+## <25km
+Geocoder::Lookup::Test.add_stub(
+  "Acton Town, London", [
+    {
+      'latitude'     => 51.5084214,
+      'longitude'    => -0.2745505,
+      'address'      => 'Acton, London W3, UK',
+      'city'	    =>  'London',
+      'state'        => 'England',
+      'postal_code'   => 'W3',
+      'country'      => 'United Kingdom',
+      'country_code' => 'GB'
     }
   ]
 )
