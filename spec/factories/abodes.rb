@@ -3,7 +3,7 @@ FactoryGirl.define do
     trait :approved do
       title Faker::Lorem.words.join(" ")
       description Faker::Lorem.paragraph
-      location Faker::Address.postcode
+      location "32950-7123"
       residential false
       submitted_by { create(:squatter, :second) }
       approved true
@@ -11,7 +11,7 @@ FactoryGirl.define do
     trait :unapproved do
       title Faker::Lorem.words.join(" ")
       description Faker::Lorem.paragraph
-      location Faker::Address.postcode
+      location "77625-9206"
       residential false
       submitted_by { create(:squatter, :third) }
       approved false
