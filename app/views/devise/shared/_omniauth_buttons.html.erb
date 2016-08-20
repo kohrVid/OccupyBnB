@@ -1,23 +1,28 @@
 <%- if devise_mapping.omniauthable? %>
-  <ul class="no-bullet inline-list row">
-    <li class="col--4-12 col--mob-3-4">
-      <%= link_to omniauth_authorize_path(resource_name, :facebook), class: "btn btn-facebook anchor-text-no-underline" do %>
-	<i class="fa fa-facebook"></i>
-	<%= action %> <%= OmniAuth::Utils.camelize(:facebook) %>
-      <% end %>
+  <ul class="no-bullet inline-list row line-height-250">
+    <li>
+      <span class="col--4-12 col--mob-3-4 no-wrap">
+	<%= link_to omniauth_authorize_path(resource_name, :facebook), class: "btn btn-facebook anchor-text-no-underline" do %>
+	  <i class="fa fa-facebook"></i>
+	  <%= action %> <%= OmniAuth::Utils.camelize(:facebook) %>
+	<% end %>
+      </span>
     </li>
-    <li class="col--4-12 col--mob-3-4">
-      <%= link_to omniauth_authorize_path(resource_name, :twitter), class: "btn btn-twitter anchor-text-no-underline" do %>
-	<i class="fa fa-twitter"></i>
-	<%= action %> <%= OmniAuth::Utils.camelize(:twitter) %>
-      <% end %>
+    <li>
+      <span class="col--4-12 col--mob-3-4 no-wrap">
+	<%= link_to omniauth_authorize_path(resource_name, :twitter), class: "btn btn-twitter anchor-text-no-underline" do %>
+	  <i class="fa fa-twitter"></i>
+	  <%= action %> <%= OmniAuth::Utils.camelize(:twitter) %>
+	<% end %>
+      </span>
     </li>
-    <li class="col--4-12 col--mob-3-4">
-      <%= link_to omniauth_authorize_path(resource_name, :instagram), class: "btn btn-instagram anchor-text-no-underline" do %>
-	<i class="fa fa-instagram"></i>
-	<%= action %> <%= OmniAuth::Utils.camelize(:instagram) %>
-      <% end %>
+    <li>
+      <span class="col--4-12 col--mob-3-4 no-wrap">
+	<%= link_to omniauth_authorize_path(resource_name, :instagram), class: "btn btn-instagram anchor-text-no-underline" do %>
+	  <i class="fa fa-instagram"></i>
+	  <%= action %> <%= OmniAuth::Utils.camelize(:instagram) %>
+	<% end %>
+      </span>
     </li>
   </ul>
 <% end -%>
-

@@ -6,6 +6,7 @@
   $left: (percentage((1.0 / $denominator) * 0.8)+$gutter) * $offset;
   width: $width;
   display: inline-block;
+  position: relative;
   margin-right: $gutter;
   margin-left: $left;
 }
@@ -18,8 +19,8 @@ $mobile-column-totals:(1, 2, 3, 4);
 }
 
 .row-no-right-margin {
-  display: block;
   width: 100%;
+  display: block;
   [class*='col--']:last-of-type {
     margin-right: 0;
     padding-right: 0;
