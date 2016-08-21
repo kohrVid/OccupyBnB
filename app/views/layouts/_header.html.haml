@@ -6,10 +6,12 @@
         %i.icon-CircledN>n
         B
   %nav(role="menu")
-    %ul.inline-list.no-bullet
+    %ul.inline-list.no-bullet.anchor-text-no-underline
       %li
         = link_to "Home", root_path
       - if current_squatter
+        %li
+          = link_to "Find a new abode!", search_path
         %li
           = link_to "Log Out", destroy_squatter_session_path, method: :delete
       - else
