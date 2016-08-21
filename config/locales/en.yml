@@ -8,6 +8,7 @@ en:
     residential: "Residential?"
     approved: "Approved?"
     submit: "Submit abode"
+    distance: "Distance in km"
     new:
       success: "Abode has been subimitted for approval"
       error: "An error has prevented this abode from being saved"

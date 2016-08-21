@@ -4,12 +4,12 @@ Feature: Abodes View
     And they have logged in
   
   Scenario: A squatter can view approved abodes
-    And some abodes have been submitted and approved
+    Given an abode has been submitted and approved
     When they visit the abodes index page
     Then they are able to see approved abodes
 
   Scenario: A squatter cannot view unapproved abodes
-    And some abodes have been submitted and approved
+    Given an abode has been submitted and approved
     And some abodes have been submitted but remain unapproved
     When they visit the abodes index page
     Then they are unable to see unapproved abodes
@@ -27,7 +27,7 @@ Feature: Abodes View
     Then are be able to see the abode's image in their list of submitted abodes
 
   Scenario: A squatter can view an approved abode's show page
-    Given some abodes have been submitted and approved
+    Given an abode has been submitted and approved
     When they visit the abode's show page
     Then they can see the abode details
  

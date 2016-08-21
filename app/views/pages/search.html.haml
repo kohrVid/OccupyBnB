@@ -1,0 +1,25 @@
+%main
+  %h1 Search
+  .row
+    %section.col--3-9.col--mob-1-4.m-0-top
+      = link_to "Find an abode", "#", id: "abodes-search-button",
+        class: "btn btn-primary anchor-text-no-underline m-1-bottom no-wrap"
+      .abode-search.hidden.m-1-top
+        = form_tag search_path, method: :get do
+          %fieldset
+            = label_tag :distance, t("abode.distance")
+            %input{ type: "hidden", name: "q[squatter_id]",
+                    value: current_squatter.id }
+            %input{ type: "range", name: "q[distance]", min: "0",
+                    max: "100", value: "0", step: "1", id: "abode_distance" }
+            = submit_tag "Search", class: "btn btn-primary"
+
+    %section.col--6-9.col--mob-3-4
+      - unless @total_results.nil?
+        .result-count
+          Found 
+          %span.result-count= @total_results
+          #{"result".pluralize(@total_results)}.
+          %ul.no-bullet
+            - @search_results.each do |result|
+              = render partial: "abodes/abode", locals: { abode: Abode.find(result.id) }

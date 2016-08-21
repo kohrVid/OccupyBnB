@@ -1,4 +1,4 @@
-Given(/^some abodes have been submitted and approved$/) do
+Given(/^an abode has been submitted and approved$/) do
   @approved_abode = FactoryGirl.create(:abode, :approved)
 end
 
