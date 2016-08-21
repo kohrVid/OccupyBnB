@@ -6,4 +6,8 @@ $(document).ready(function () {
   $(".btn-primary").css("filter", String(`hue-rotate(${ hue }deg)`));
   $(".btn-primary").css("-webkit-filter", String(`hue-rotate(${ hue }deg)`));
   $("#main-logo").css("color", String(`hue-rotate(${ hue }deg)`));
+
+  $("#abodes-search-button").click(function () { 
+    $(".abode-search").toggle();
+  });
 });

@@ -1,16 +1,14 @@
-%main.row(itemscope itemtype="https://schema.org/Place")
-  .col--10-12-offset-1.col--mob-4-4
-    %h1= @abode.title
-    %p(itemprop="photo")
-      - unless @abode.abode_images.empty?
-        = image_tag @abode.abode_images[0].file_name.file.file,
-          width: "120rem", alt: "Abode Image"
-    %p(itemprop="address")= @abode.location
-    %p= @abode.description
-    %p
-      %strong Residential? 
-      = @abode.residential.humanize
-    %p
-      %strong Date added to the site:
-      = @abode.approved_at
-
+%main(itemscope itemtype="https://schema.org/Place")
+  %h1= @abode.title
+  %p(itemprop="photo")
+    - unless @abode.abode_images.empty?
+      = image_tag @abode.abode_images[0].file_name.file.file,
+        width: "120rem", alt: "Abode Image"
+  %p(itemprop="address")= @abode.location
+  %p= @abode.description
+  %p
+    %strong Residential? 
+    = @abode.residential.humanize
+  %p
+    %strong Date added to the site:
+    = @abode.approved_at
