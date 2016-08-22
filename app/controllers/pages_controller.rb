@@ -16,8 +16,7 @@ class PagesController < ApplicationController
       @search_results = []
     else
       squatter_id = params[:q]["squatter_id"].to_i
-      distance = params[:q]["distance"]
-      @search_results = Abode.near(Squatter.find(squatter_id).location, distance)
+      @search_results = Abode.approved.search(params[:q])
       @total_results = @search_results.size
     end
   end
