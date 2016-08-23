@@ -44,3 +44,11 @@ Feature: Search Abodes
     And they tick non-residential-only
     And they click "Search"
     Then there should be two non-residential abode in the results
+  
+  @javascript
+  Scenario: A squatter can search for abodes by sleeps number
+    When they visit the search page
+    And they click "Find an abode"
+    And they select a sleeps number of 2
+    And they click "Search"
+    Then there should be one abode present that sleeps two.

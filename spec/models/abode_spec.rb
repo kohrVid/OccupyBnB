@@ -33,6 +33,13 @@ RSpec.describe Abode, type: :model do
     end
   end
   
+  describe "sleeps_number" do
+    it "should be present" do
+      abode = FactoryGirl.build(:abode, :unapproved, sleeps_number: "")
+      expect(abode).to_not be_valid
+    end
+  end
+  
   describe "associations" do
     it "should have a submitted_by ID" do
       abode = FactoryGirl.build(:abode, :unapproved, submitted_by: nil)

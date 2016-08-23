@@ -17,6 +17,7 @@ class Abode < ApplicationRecord
   validates :title, presence: true, length: { maximum: 30 }
   validates :location, presence: true
   validates :submitted_by, presence: true
+  validates :sleeps_number, presence: :true
   
 
   settings index: { number_of_shards: 1 } do
@@ -25,6 +26,7 @@ class Abode < ApplicationRecord
       indexes :coordinates, type: "geo_point"
       indexes :approved, type: "boolean", index: :not_analyzed
       indexes :residential, type: "boolean", index: :not_analyzed
+      indexes :sleeps_number, type: "integer", index: :not_analyzed
     end
   end
 
@@ -32,7 +34,7 @@ class Abode < ApplicationRecord
     as_json(only: %w(coordinates))
     .merge(coordinates: {
       lat: latitude.to_f, lon: longitude.to_f
-    }).merge(residential: residential.to_s)
+    }).merge(residential: residential.to_s, sleeps_number: sleeps_number.to_s)
   end
 
   def self.search(query)
@@ -46,7 +48,6 @@ class Abode < ApplicationRecord
         }
       }
     }
-    
 
     unless query['distance'].to_i.zero?
       search_definition[:query][:bool][:must] << {
@@ -85,6 +86,20 @@ class Abode < ApplicationRecord
 	    and: [{
 	      term: {
 		residential: "#{!query['non_residential_only']}"
+	      }
+	    }]
+	  }
+	}
+      }
+    end
+    
+    unless query['sleeps_number'].to_i.zero?
+      search_definition[:query][:bool][:must] << {
+        filtered: {
+          filter: {
+	    and: [{
+	      term: {
+		sleeps_number: "#{query['sleeps_number']}"
 	      }
 	    }]
 	  }

@@ -7,8 +7,11 @@
   %p(itemprop="address")= @abode.location
   %p= @abode.description
   %p
-    %strong Residential? 
+    %strong= t("abode.how_many_sleeps")
+    = @abode.sleeps_number
+  %p
+    %strong= t("abode.residential") 
     = @abode.residential.humanize
   %p
-    %strong Date added to the site:
+    %strong= t("abode.date_added")
     = @abode.approved_at

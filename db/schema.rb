@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160819182701) do
+ActiveRecord::Schema.define(version: 20160823080946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20160819182701) do
     t.integer  "submitted_by_id"
     t.integer  "approved_by_id"
     t.datetime "approved_at"
+    t.integer  "sleeps_number"
     t.index ["approved_by_id"], name: "index_abodes_on_approved_by_id", using: :btree
     t.index ["submitted_by_id"], name: "index_abodes_on_submitted_by_id", using: :btree
   end

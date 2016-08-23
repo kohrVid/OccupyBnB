@@ -13,7 +13,7 @@ Feature: Abodes View
     And some abodes have been submitted but remain unapproved
     When they visit the abodes index page
     Then they are unable to see unapproved abodes
-
+  
   Scenario: A squatter can submit a new abode
     When they visit the new abode page
     And they enter abode details

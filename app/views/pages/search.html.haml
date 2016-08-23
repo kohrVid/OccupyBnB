@@ -5,7 +5,7 @@
       = link_to "Find an abode", "#", id: "abodes-search-button",
         class: "btn btn-primary anchor-text-no-underline m-1-bottom no-wrap"
       .abode-search.hidden.m-1-top
-        = form_tag search_path, method: :get do
+        = form_tag search_path, method: :get, role: "form" do
           %fieldset
             = label_tag t("abode.distance")
             %input{ type: "hidden", name: "q[squatter_id]",
@@ -23,7 +23,11 @@
               "aria-labelledby": "residential only", tabindex: 2
             = label_tag t("abode.non_residential_only")
             = check_box_tag "q[non_residential_only]", true, false,
-              "aria-labelledby": "non-residential only", tabindex: 3 
+              "aria-labelledby": "non-residential only", tabindex: 3
+          %fieldset
+            = label_tag t("abode.sleeps_number")
+            = select_tag "q[sleeps_number]", options_for_select([t("any")] + [*1..100]),
+              "aria-labelledby": "sleeps number", tabindex: 4
           %fieldset
             = submit_tag "Search", class: "btn btn-primary"
 

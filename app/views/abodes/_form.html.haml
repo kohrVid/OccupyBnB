@@ -20,5 +20,9 @@
   %fieldset.field
     = f.label :residential, t("abode.residential")
     = f.check_box :residential, "aria-labelledby": "residential", tabindex: 5
+  %fieldset.field
+    = f.label :sleeps_number, t("abode.sleeps_number")
+    = f.select :sleeps_number, options_for_select([t("abode.select_sleeps")] + [*1..100]),
+      "aria-labelledby": "sleeps number", tabindex: 6
   %fieldset
     = f.submit t("abode.submit"), class: "btn btn-primary"

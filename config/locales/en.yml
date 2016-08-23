@@ -1,5 +1,6 @@
 en:
   hello: "Hello world"
+  any: "Any"
   abode:
     title: "Title"
     images: "Images"
@@ -7,8 +8,14 @@ en:
     description: "Description"
     residential: "Residential?"
     approved: "Approved?"
+    sleeps_number: "Sleeps"
+    select_sleeps: "Select the sleeps number"
+    how_many_sleeps: "How many squatters could sleep here?"
+    date_added: "Date added to the site"
     submit: "Submit abode"
     distance: "Distance in km"
+    residential_only: "Residential only?"
+    non_residential_only: "Non-Residential only?"
     new:
       success: "Abode has been subimitted for approval"
       error: "An error has prevented this abode from being saved"
