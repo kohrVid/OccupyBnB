@@ -29,8 +29,9 @@ gem 'carrierwave', git: 'https://github.com/carrierwaveuploader/carrierwave'
 gem 'mini_magick', '~> 3.8.0'
 gem 'fog'
 gem 'geocoder'
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
+gem 'elasticsearch-model', git: 'https://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-rails', git: 'https://github.com/elasticsearch/elasticsearch-rails.git'
+
 gem 'searchkick'
 
 # Use Capistrano for deployment

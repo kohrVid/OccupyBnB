@@ -20,48 +20,40 @@ class Abode < ApplicationRecord
   
 
   settings index: { number_of_shards: 1 } do
-    mappings do
+    mappings dynamic: 'false' do
       indexes :id, type: "integer", index: :not_analyzed
       indexes :coordinates, type: "geo_point"
-      indexes :approved, type: "boolean"
-      indexes :residential, type: "boolean"
+      indexes :approved, type: "boolean", index: :not_analyzed
+      indexes :residential, type: "boolean", index: :not_analyzed
     end
   end
 
   def as_indexed_json(_options = {})
-    as_json(only: %w(location))
+    as_json(only: %w(coordinates))
     .merge(coordinates: {
       lat: latitude.to_f, lon: longitude.to_f
-    })
+    }).merge(residential: residential.to_s)
   end
 
-  #def self.search(query = nil, options = {})
   def self.search(query)
-   # options ||= {}
 
-    # empty search not allowed, for now
-#    return nil if query.blank?# && options.blank?
+    return nil if query.blank?
 
-    # define search definition
     search_definition = {
       query: {
-#	match: { term: {approved: true} },
         bool: {
-          must: []
+	  must: []
         }
-#	filtered:{filter: {bool: {must: [{term: {approved: true}}]}}}
       }
     }
+    
 
-    # geo spatial
-    if query['squatter_lat'].present? && query['squatter_lon'].present?
-      query[:distance] ||= 100
-
+    unless query['distance'].to_i.zero?
       search_definition[:query][:bool][:must] << {
         filtered: {
           filter: {
             geo_distance: {
-              distance: "#{query[:distance]}km",
+              distance: "#{query['distance']}km",
               coordinates: {
                 lat: query['squatter_lat'].to_f,
                 lon: query['squatter_lon'].to_f
@@ -71,28 +63,36 @@ class Abode < ApplicationRecord
         }
       }
     end
-=begin
+    
     if query['residential_only'].present?
-  #   search_definition[:query][:bool][:should] ||= [] 
       search_definition[:query][:bool][:must] << {
- #       filtered: {
- #         filter: {
-#	    bool: {
-#	      must: {
-		and: [{
-		  term: {
-		    residential: query['residential_only']
-		  }
-		}]
-#	      }
-#	    }
-#	  }
-#	}
+        filtered: {
+          filter: {
+	    and: [{
+	      term: {
+		residential: "#{query['residential_only']}"
+	      }
+	    }]
+	  }
+	}
       }
     end
-=end
 
-    __elasticsearch__.search(search_definition)
+    if query['non_residential_only'].present?
+      search_definition[:query][:bool][:must] << {
+        filtered: {
+          filter: {
+	    and: [{
+	      term: {
+		residential: "#{!query['non_residential_only']}"
+	      }
+	    }]
+	  }
+	}
+      }
+    end
+
+    __elasticsearch__.search(search_definition).records
   end 
 end
 Abode.import(force: true)

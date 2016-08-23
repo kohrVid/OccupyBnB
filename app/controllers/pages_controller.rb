@@ -16,8 +16,8 @@ class PagesController < ApplicationController
       @search_results = []
     else
       squatter_id = params[:q]["squatter_id"].to_i
-      @search_results = Abode.approved.search(params[:q])
-      @total_results = @search_results.size
+      @search_results = Abode.approved.search(params[:q]).approved
+      @total_results = @search_results.count
     end
   end
 end

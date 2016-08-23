@@ -7,11 +7,24 @@
       .abode-search.hidden.m-1-top
         = form_tag search_path, method: :get do
           %fieldset
-            = label_tag :distance, t("abode.distance")
+            = label_tag t("abode.distance")
             %input{ type: "hidden", name: "q[squatter_id]",
                     value: current_squatter.id }
+            %input{ type: "hidden", name: "q[squatter_lat]",
+                    value: current_squatter.latitude }
+            %input{ type: "hidden", name: "q[squatter_lon]",
+                    value: current_squatter.longitude }
             %input{ type: "range", name: "q[distance]", min: "0",
-                    max: "100", value: "0", step: "1", id: "abode_distance" }
+              max: "100", value: "0", step: "1", id: "abode_distance", 
+              arialabelledby: "distance", tabindex: 1 }
+          %fieldset
+            = label_tag t("abode.residential_only")
+            = check_box_tag "q[residential_only]", true, false,
+              "aria-labelledby": "residential only", tabindex: 2
+            = label_tag t("abode.non_residential_only")
+            = check_box_tag "q[non_residential_only]", true, false,
+              "aria-labelledby": "non-residential only", tabindex: 3 
+          %fieldset
             = submit_tag "Search", class: "btn btn-primary"
 
     %section.col--6-9.col--mob-3-4
