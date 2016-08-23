@@ -1,5 +1,5 @@
 %li
-  = abode.title
+  = link_to abode.title, abode
   %p(itemprop="photo")
     - unless abode.abode_images.empty?
       = image_tag abode.abode_images[0].file_name.file.file,

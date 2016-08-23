@@ -1,8 +1,7 @@
-%main.row(itemscope itemtype="https://schema.org/Person")
-  .col--10-12-offset-1.col--mob-4-4
-    %h1(itemprop="name")= @squatter.username
-    - unless !(current_squatter == @squatter || current_squatter.admin?)
-      %p(itemprop="address")
-        %strong Location
-        %br
-        = @squatter.location
+%main(itemscope itemtype="https://schema.org/Person")
+  %h1(itemprop="name")= @squatter.username
+  - unless !(current_squatter == @squatter || current_squatter.admin?)
+    %p(itemprop="address")
+      %strong Location
+      %br
+      = @squatter.location

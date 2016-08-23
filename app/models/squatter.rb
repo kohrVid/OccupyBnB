@@ -1,11 +1,16 @@
+require 'elasticsearch/model'
 class Squatter < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+  include Elasticsearch::Model::Indexing
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, 
 	 :confirmable, :omniauthable, omniauth_providers: [:facebook, :twitter, :instagram]
   has_many :identities, dependent: :destroy
   has_many :submitted_abodes, class_name: "Abode", foreign_key: :submitted_by_id
+  geocoded_by :location
+  after_validation :geocode
+  searchkick
   
   VALID_EMAIL_REGEX = /\A[^\.]+[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i 
   validates :username, presence: true, uniqueness: true
@@ -44,4 +49,47 @@ class Squatter < ApplicationRecord
   def admin?
     self.type == "Admin"
   end
+  
+  settings index: { number_of_shards: 1 } do
+    mappings dynamic: "false" do
+      indexes :id, type: "integer", index: :not_analyzed
+      indexes :username, analyzer: "english", index_options: "offsets", index: :not_analyzed
+    end
+  end
+
+  def as_indexed_json(_options = {})
+    as_json(only: %w(id))
+    .merge(username: username )
+  end
+
+  def self.search(query)
+    return nil if query.blank?
+
+    search_definition = {
+      query: {
+        filtered: {
+	  query: {
+	    match_all: {}
+	  },
+	  filter: {
+	    bool: {
+	      should: [{
+		query: {
+		  wildcard: { 
+		    username: { 
+		      value: "*#{query}*"
+		    }
+		  }
+		}
+	      }]
+	    }
+	  }
+        }
+      }
+    }
+    __elasticsearch__.search(search_definition).records
+  end
+
+
 end
+Squatter.import(force: true)

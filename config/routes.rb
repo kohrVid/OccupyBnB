@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   root to: 'pages#index'
+  get :search, to: "pages#abode_search"
+  get :squatter_search, to: "pages#squatter_search"
   resources :pages, only: [:index] do
     collection do
-      get 'pages/help'
-      get 'pages/privacy'
-      get 'pages/tos'
+      get :help
+      get :privacy
+      get :tos
     end
   end
 

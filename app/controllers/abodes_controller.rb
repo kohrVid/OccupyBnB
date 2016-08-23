@@ -20,10 +20,14 @@ class AbodesController < ApplicationController
     end
   end
 
+  def show
+    @abode = Abode.find(params[:id])
+  end
+
   private
     def abode_params
       params.require(:abode).permit(:title, :location, :description,
-				    :residential, :submitted_by_id,
+				    :residential, :submitted_by_id, :sleeps_number,
 				    :approved, :approved_by_id, :approved_at,
 				    abode_images_attributes: [:id, :file_name]
 				   )

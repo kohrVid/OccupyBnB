@@ -1,0 +1,48 @@
+%main
+  %h1 Search
+  .row
+    .col--3-9.col--mob-1-4.m-0-top
+      %section.m-1-bottom
+        .btn.btn-primary.anchor-text-no-underline.m-1-bottom.no-wrap
+          Find an abode
+        .abode-search.m-1-top
+          = form_tag search_path, method: :get, role: "form" do
+            %fieldset
+              = label_tag t("abode.distance")
+              %input{ type: "hidden", name: "q[squatter_id]",
+                      value: current_squatter.id }
+              %input{ type: "hidden", name: "q[squatter_lat]",
+                      value: current_squatter.latitude }
+              %input{ type: "hidden", name: "q[squatter_lon]",
+                      value: current_squatter.longitude }
+              %input{ type: "range", name: "q[distance]", min: "0",
+                max: "100", value: "0", step: "1", id: "abode_distance", 
+                arialabelledby: "distance", tabindex: 1 }
+            %fieldset
+              = label_tag t("abode.residential_only")
+              = check_box_tag "q[residential_only]", true, false,
+                "aria-labelledby": "residential only", tabindex: 2
+              = label_tag t("abode.non_residential_only")
+              = check_box_tag "q[non_residential_only]", true, false,
+                "aria-labelledby": "non-residential only", tabindex: 3
+            %fieldset
+              = label_tag t("abode.sleeps_number")
+              = select_tag "q[sleeps_number]", options_for_select([t("any")] + [*1..100]),
+                "aria-labelledby": "sleeps number", tabindex: 4
+            %fieldset
+              = submit_tag "Search", class: "btn btn-primary"
+      %section.m-2-top
+        = link_to "Find another squatter", squatter_search_path, id: "squatters-search-button",
+          class: "btn btn-primary anchor-text-no-underline m-1-bottom no-wrap"
+    
+    %section.col--6-9.col--mob-3-4
+      - unless @total_results.nil?
+        .result-count
+          Found 
+          %span.result-count
+            = "#{@total_results} #{"result".pluralize(@total_results)}."
+        %ul.no-bullet
+          - @search_results.each do |result|
+            %li
+              = render partial: "abodes/abode", locals: { abode: Abode.find(result.id) }
+

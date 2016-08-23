@@ -1,0 +1,17 @@
+%main(itemscope itemtype="https://schema.org/Place")
+  %h1= @abode.title
+  %p(itemprop="photo")
+    - unless @abode.abode_images.empty?
+      = image_tag @abode.abode_images[0].file_name.file.file,
+        width: "120rem", alt: "Abode Image"
+  %p(itemprop="address")= @abode.location
+  %p= @abode.description
+  %p
+    %strong= t("abode.how_many_sleeps")
+    = @abode.sleeps_number
+  %p
+    %strong= t("abode.residential") 
+    = @abode.residential.humanize
+  %p
+    %strong= t("abode.date_added")
+    = @abode.approved_at

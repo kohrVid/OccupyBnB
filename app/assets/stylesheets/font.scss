@@ -60,3 +60,7 @@ nav {
   color: $white;
   @include anchor-text($white);
 }
+
+.line-height-250 {
+  line-height: 250%;
+}

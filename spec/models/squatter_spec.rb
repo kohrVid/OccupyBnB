@@ -57,6 +57,14 @@ RSpec.describe Squatter, type: :model do
     end
   end
 
+  describe "geocoding" do
+    it "automatically geocodes the model on save" do
+      squatter = FactoryGirl.create(:squatter, :second, location: "West Ham, London")
+      expect(squatter.latitude).to eq(51.538265.to_d)
+      expect(squatter.longitude).to eq(0.014525.to_d)
+    end
+  end
+ 
   describe "associations" do  
     it "may have an identity" do
       squatter = FactoryGirl.create(:squatter, :first)
