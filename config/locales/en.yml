@@ -20,3 +20,5 @@ en:
       success: "Abode has been subimitted for approval"
       error: "An error has prevented this abode from being saved"
     submitted_at: "Submitted at"
+  squatter:
+    search: "Search by username"
