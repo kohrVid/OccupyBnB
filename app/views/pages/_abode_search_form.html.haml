@@ -2,9 +2,9 @@
   .btn.btn-primary.anchor-text-no-underline.m-1-bottom.no-wrap
     Find an abode
   .abode-search.m-1-top
-    = form_tag search_path, method: :get, role: "form" do
+    = form_tag search_path, method: :get do
       %fieldset
-        = label_tag t("abode.distance")
+        %label#Distance_in_km= t("abode.distance")
         %input{ type: "hidden", name: "q[squatter_id]",
                 value: current_squatter.id }
         %input{ type: "hidden", name: "q[squatter_lat]",
@@ -13,18 +13,19 @@
                 value: current_squatter.longitude }
         %input{ type: "range", name: "q[distance]", min: "0",
           max: "100", value: "0", step: "1", id: "abode_distance", 
-          arialabelledby: "distance", tabindex: 1 }
+          "aria-labelledby": "Distance_in_km", tabindex: 1 }
       %fieldset
-        = label_tag t("abode.residential_only")
+        %label#Residential_only_= t("abode.residential_only")
         = check_box_tag "q[residential_only]", true, false,
-          "aria-labelledby": "residential only", tabindex: 2
-        = label_tag t("abode.non_residential_only")
+          "aria-labelledby": "Residential_only_", tabindex: 2
+
+        %label#Non_Residential_only_= t("abode.non_residential_only")
         = check_box_tag "q[non_residential_only]", true, false,
-          "aria-labelledby": "non-residential only", tabindex: 3
+          "aria-labelledby": "Non_Residential_only_", tabindex: 3
       %fieldset
-        = label_tag t("abode.sleeps_number")
+        %label#Sleep_number= t("abode.sleeps_number")
         = select_tag "q[sleeps_number]", options_for_select([t("any")] + [*1..100]),
-          "aria-labelledby": "sleeps number", tabindex: 4
+          "aria-labelledby": "Sleep_number", tabindex: 4
       %fieldset
         = submit_tag "Search", class: "btn btn-primary"
 %section.m-2-top
