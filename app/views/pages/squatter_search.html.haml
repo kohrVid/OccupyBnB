@@ -2,29 +2,4 @@
   %h1 Search
   .row
     .col--3-9.col--mob-1-4.m-0-top
-      %section.m-1-bottom
-        .btn.btn-primary.anchor-text-no-underline.m-1-bottom.no-wrap
-          Find another squatter
-        .squatter-search.m-1-top
-          = form_tag squatter_search_path, method: :get, role: "form" do
-            %fieldset
-              = label_tag t("squatter.search")
-              = text_field_tag "[search_username]", nil,
-                "aria-labelledby": "Search by username", tabindex: 1
-            %fieldset
-              = submit_tag "Search", class: "btn btn-primary"
-
-      %section.m-2-top
-        = link_to "Find an abode", search_path,
-          class: "btn btn-primary anchor-text-no-underline m-1-bottom no-wrap"
-    
-    %section.col--6-9.col--mob-3-4
-      - unless @total_squatters.nil?
-        .result-count
-          Found 
-        %span.result-count
-          = "#{@total_squatters} #{"result".pluralize(@total_squatters)}."
-        %ul.no-bullet
-          - @search_squatters.each do |result|
-            %li
-              = link_to result.username, squatter_path(result)
+      = render "pages/squatter_search_form"

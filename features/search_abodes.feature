@@ -31,7 +31,7 @@ Feature: Search Abodes
     And they tick residential-only
     And they click "Search"
     Then there should be one residential abode in the results
-  
+
   Scenario: A squatter can search for non-residential abodes only
     When they visit the search page
     And they tick non-residential-only

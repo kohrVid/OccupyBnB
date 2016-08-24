@@ -66,8 +66,6 @@ class Squatter < ApplicationRecord
   end
 
   def self.search(query)
-    return nil if query.blank?
-
     search_definition = {
       query: {
         filtered: {
