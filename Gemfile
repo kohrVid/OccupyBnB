@@ -33,7 +33,6 @@ gem 'elasticsearch-model', git: 'https://github.com/elasticsearch/elasticsearch-
 gem 'elasticsearch-rails', git: 'https://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'searchkick'
 gem 'cocoon'
-gem 'ratyrate', git: 'https://github.com/wazery/ratyrate'
 
 # Use Capistrano for deployment
  gem 'capistrano-rails'#, group: :development

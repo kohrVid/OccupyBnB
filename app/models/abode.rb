@@ -7,6 +7,7 @@ class Abode < ApplicationRecord
 	      foreign_key: :submitted_by_id
   belongs_to :approved_by, class_name: "Admin", foreign_key: :approved_by_id
   has_many :abode_images, dependent: :destroy
+  has_many :abode_reviews
   accepts_nested_attributes_for :abode_images, reject_if: :all_blank,
     allow_destroy: true
   geocoded_by :location
