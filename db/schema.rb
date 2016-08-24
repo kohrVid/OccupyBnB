@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823080946) do
+ActiveRecord::Schema.define(version: 20160823184440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,18 @@ ActiveRecord::Schema.define(version: 20160823080946) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["squatter_id"], name: "index_identities_on_squatter_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.integer  "replied_to_id"
+    t.boolean  "read",          default: false
+    t.boolean  "visible",       default: true
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "squatters", force: :cascade do |t|

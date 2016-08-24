@@ -70,9 +70,20 @@ RSpec.describe Squatter, type: :model do
       squatter = FactoryGirl.create(:squatter, :first)
       expect(squatter).to respond_to(:identities)
     end
+    
     it "may have submitted abodes" do
       squatter = FactoryGirl.create(:squatter, :first)
       expect(squatter).to respond_to(:submitted_abodes)
+    end
+    
+    it "may have received messages" do
+      squatter = FactoryGirl.create(:squatter, :first)
+      expect(squatter).to respond_to(:received_messages)
+    end
+
+    it "may have sent messages" do
+      squatter = FactoryGirl.create(:squatter, :first)
+      expect(squatter).to respond_to(:sent_messages)
     end
   end
 end

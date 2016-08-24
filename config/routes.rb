@@ -24,6 +24,17 @@ Rails.application.routes.draw do
     member do
       get :submissions_pending_approval
     end
+    resources :messages, except: [:destroy, :edit, :index] do
+      collection do
+	get :sent_items
+      end
+      collection do
+	get :inbox
+      end
+      member do
+	get :reply
+      end
+    end
   end
 
   resources :abodes do

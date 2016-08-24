@@ -1,0 +1,19 @@
+%main
+  .col--12-12.col--mob-4-4
+    = link_to t("message.inbox"),
+      inbox_squatter_messages_path(current_squatter)
+    = link_to t("message.sent_items"),
+      sent_items_squatter_messages_path(current_squatter)
+  %article
+    %h1= @message.title
+    %small
+      %strong Sent from: 
+      = @message.sender.username
+      %strong Sent at:
+      = @message.created_at
+      = link_to(reply_squatter_message_path(@message.sender, @message), 
+        "aria-label": "Reply", title: "Send a reply", id: "reply") do
+        %i.fa.fa-mail-reply
+    .row
+      %section.col--6-9.col--mob-3-4
+        = @message.body
