@@ -1,0 +1,10 @@
+%main
+  %h1 Your Messages
+  .row
+    .col--3-9.col--mob-1-4.m-0-top
+      = link_to t("message.sent_items"),
+        sent_items_squatter_messages_path(current_squatter)
+    %section.col--6-9.col--mob-3-4
+      - @messages.each do |message|
+        %strong= link_to message.title, 
+          squatter_message_path(current_squatter, message)

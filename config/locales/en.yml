@@ -22,3 +22,12 @@ en:
     submitted_at: "Submitted at"
   squatter:
     search: "Search by username"
+  message:
+    sender: "Sender"
+    recipient: "Recipient"
+    title: "Title"
+    body: "Body"
+    submit: "Send"
+    sent_items: "Sent Items"
+    inbox: "Inbox"
+
