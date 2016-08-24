@@ -21,8 +21,14 @@
           %td= abode.title
           %td(itemprop="photo")
             - unless abode.abode_images.empty?
-              = image_tag abode.abode_images[0].file_name.file.file,
-              width: "120rem", alt: "Abode Image"
+              = image_tag abode.abode_images[0].file_name.url,
+                width: "120rem", alt: "Abode Image"
+              %br
+              - if abode.abode_images.count > 1
+                %ul.display-inline.no-bullet
+                  - abode.abode_images.each_with_index do |image, index|
+                    %li
+                      = link_to index, image.file_name.url unless index.zero?
           %td.hide-mobile= abode.description
           %td(itemprop="address")= abode.location
           %td= abode.residential.humanize

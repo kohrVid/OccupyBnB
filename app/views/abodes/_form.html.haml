@@ -5,10 +5,9 @@
     = f.text_field :title, "aria-labelledby": "title", autofocus: true,
       tabindex: 1
   %fieldset.field
-    = f.label :abode_images, t("abode.images")
     = f.fields_for :abode_images do |build|
-      = build.file_field :file_name, accept: "image/jpeg,image/gif,image/png",
-        "aria-labelledby": "photographs", tabindex: 2
+      = render partial: "abodes/abode_image_fields", locals: { f: build }
+    = link_to_add_association t("abode.images_add"), f, :abode_images
   %fieldset.field
     = f.label :location, t("abode.location")
     = f.text_area :location, rows: 5, cols: 25, "aria-labelledby": "location",

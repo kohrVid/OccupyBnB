@@ -8,5 +8,5 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require boot
-
+//= require cocoon
 //= require_tree .

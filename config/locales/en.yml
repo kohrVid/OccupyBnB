@@ -4,6 +4,8 @@ en:
   abode:
     title: "Title"
     images: "Images"
+    images_add: "Add image"
+    images_remove: "Remove image"
     location: "Location"
     description: "Description"
     residential: "Residential?"
