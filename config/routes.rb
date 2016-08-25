@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_scope :squatter do
+  devise_scope :squatters do
     devise_for :squatters, controllers: { 
       sessions: "squatters/sessions",
       registrations: "squatters/registrations",
