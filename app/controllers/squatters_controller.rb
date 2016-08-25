@@ -6,6 +6,9 @@ class SquattersController < ApplicationController
   end
 
   def show
+    @squatter = Squatter.includes(:reviews).find(params[:id])
+    @squatter_review = SquatterReview.new
+    @reviews = @squatter.reviews.includes(:reviewer).order("created_at DESC")
   end
 
   def submissions_pending_approval

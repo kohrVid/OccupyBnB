@@ -14,7 +14,6 @@ gem 'jquery-rails'
 gem 'underscore-rails'
 gem 'sprockets', '>=3.0.0.beta'
 gem 'sprockets-es6'
-gem 'ejs'
 gem 'haml'
 gem 'nokogiri'
 gem 'devise', git: 'https://github.com/plataformatec/devise.git'
@@ -31,8 +30,8 @@ gem 'fog'
 gem 'geocoder'
 gem 'elasticsearch-model', git: 'https://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'elasticsearch-rails', git: 'https://github.com/elasticsearch/elasticsearch-rails.git'
-
 gem 'searchkick'
+gem 'cocoon'
 
 # Use Capistrano for deployment
  gem 'capistrano-rails'#, group: :development

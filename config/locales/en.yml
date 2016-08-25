@@ -4,6 +4,8 @@ en:
   abode:
     title: "Title"
     images: "Images"
+    images_add: "Add image"
+    images_remove: "Remove image"
     location: "Location"
     description: "Description"
     residential: "Residential?"
@@ -16,6 +18,7 @@ en:
     distance: "Distance in km"
     residential_only: "Residential only?"
     non_residential_only: "Non-Residential only?"
+    add_review: "Add a review"
     new:
       success: "Abode has been subimitted for approval"
       error: "An error has prevented this abode from being saved"
@@ -30,4 +33,11 @@ en:
     submit: "Send"
     sent_items: "Sent Items"
     inbox: "Inbox"
-
+  abode_review:
+    summary: "Summary"
+    body: "Body"
+    submit: "Submit abode review"
+  squatter_review:
+    summary: "Summary"
+    body: "Body"
+    submit: "Submit squatter review"

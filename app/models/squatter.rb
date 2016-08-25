@@ -6,10 +6,13 @@ class Squatter < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, 
 	 :confirmable, :omniauthable, omniauth_providers: [:facebook, :twitter, :instagram]
+  has_many :abode_reviews
   has_many :identities, dependent: :destroy
-  has_many :submitted_abodes, class_name: "Abode", foreign_key: :submitted_by_id
+  has_many :submitted_abodes, class_name: 'Abode', foreign_key: :submitted_by_id
   has_many :received_messages, class_name: 'Message', foreign_key: :recipient_id
   has_many :sent_messages, class_name: 'Message', foreign_key: :sender_id
+  has_many :squatter_reviews_written, class_name: 'SquatterReview', foreign_key: :reviewer_id
+  has_many :reviews, class_name: 'SquatterReview', foreign_key: :reviewee_id
 
   geocoded_by :location
   after_validation :geocode
@@ -62,12 +65,10 @@ class Squatter < ApplicationRecord
 
   def as_indexed_json(_options = {})
     as_json(only: %w(id))
-    .merge(username: username )
+      .merge(username: username.downcase )
   end
 
   def self.search(query)
-    return nil if query.blank?
-
     search_definition = {
       query: {
         filtered: {
@@ -80,7 +81,7 @@ class Squatter < ApplicationRecord
 		query: {
 		  wildcard: { 
 		    username: { 
-		      value: "*#{query}*"
+		      value: "*#{query.downcase}*"
 		    }
 		  }
 		}

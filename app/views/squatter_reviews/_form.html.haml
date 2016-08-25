@@ -1,0 +1,14 @@
+= form_for @squatter_review, remote: true do |f|
+  = f.hidden_field :reviewee_id, value: @squatter.id
+  = f.hidden_field :reviewer_id, value: current_squatter.id
+
+  %fieldset.fields
+    = f.label :summary, t("squatter_review.summary")
+    = f.text_field :summary, "aria-labelledby": "squatter_review_summary", autofocus: "autofocus", tabindex: 1
+
+  %fieldset.fields
+    = f.label :body, t("squatter_review.body")
+    = f.text_area :body, "aria-labelledby": "squatter_review_summary", tabindex: 2
+  
+  %fieldset
+    = f.submit t("squatter_review.submit"), class: "btn btn-primary"

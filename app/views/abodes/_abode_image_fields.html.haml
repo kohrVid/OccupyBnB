@@ -1,0 +1,6 @@
+.nested-fields
+  %label#abode_images= t("abode.images")
+  %br
+  = f.file_field :file_name, accept: "image/jpeg,image/gif,image/png",
+    "aria-labelledby": "abode_images", tabindex: 2
+  = link_to_remove_association t("abode.images_remove"), f

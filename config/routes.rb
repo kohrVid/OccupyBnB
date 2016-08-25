@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: 'pages#index'
-  get :search, to: "pages#abode_search"
+  get :abode_search, to: "pages#abode_search"
+  get :search, to: "pages#search"
   get :squatter_search, to: "pages#squatter_search"
   resources :pages, only: [:index] do
     collection do
@@ -40,5 +41,7 @@ Rails.application.routes.draw do
   resources :abodes do
     resources :abode_images
   end
+  resources :abode_reviews
+  resources :squatter_reviews
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

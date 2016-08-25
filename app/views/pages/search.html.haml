@@ -1,0 +1,16 @@
+%main
+  %h1 Search
+  .row
+    .col--4-9.col--mob-4-4.m-1-bottom
+      = render "pages/abode_search_form"
+
+    %section.col--5-9.col--mob-4-4.m-0-top
+      - unless @total_results.nil?
+        .result-count
+          Found 
+          %span.result-count
+            = "#{@total_results} #{"result".pluralize(@total_results)}."
+        %ul.no-bullet
+          - @search_results.each do |result|
+            %li
+              = render partial: "abodes/abode", locals: { abode: Abode.find(result.id) }

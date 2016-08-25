@@ -1,20 +1,20 @@
 %h1 Send a new message
-= form_for [@squatter, @message], role: "form" do |f|
+= form_for [@squatter, @message] do |f|
   = f.hidden_field :sender_id, value: current_squatter.id
 
   %fieldset.field
     = f.label :recipient_id, t("message.recipient")
     = f.text_field :recipient_id, value: @squatter.id,
-      "aria-labelledby": "recipient", tabindex: 1
+      "aria-labelledby": "message_recipient_id", tabindex: 1
 
   %fieldset.field
     = f.label :title, t("message.title")
-    = f.text_field :title, "aria-labelledby": "title", autofocus: true,
+    = f.text_field :title, "aria-labelledby": "message_title", autofocus: true,
       tabindex: 2
 
   %fieldset.field
     = f.label :body, t("message.body")
-    = f.text_area :body, "aria-labelledby": "body", tabindex: 3
+    = f.text_area :body, "aria-labelledby": "message_body", tabindex: 3
 
   %fieldset.field
-    = f.submit t("message.submit")
+    = f.submit t("message.submit"), class: "btn btn-primary"

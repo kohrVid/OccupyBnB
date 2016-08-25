@@ -10,3 +10,12 @@
       %br
       = @squatter.location
   = link_to "Send a PM", new_squatter_message_path(@squatter)
+  
+  %section
+    %h2 Reviews
+    %span.fake-link#add-review Add a review
+    #review-form.hidden
+      = render partial: "squatter_reviews/form", locals: { squatter_reviewed: @squatter, squatter_reviewer: current_squatter }
+    #squatter-reviews
+      - @reviews.each do |review|
+        = render partial: "squatter_reviews/squatter_review", locals: { squatter_review: review }

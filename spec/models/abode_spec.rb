@@ -45,5 +45,10 @@ RSpec.describe Abode, type: :model do
       abode = FactoryGirl.build(:abode, :unapproved, submitted_by: nil)
       expect(abode).to_not be_valid
     end
+    
+    it "may have abode reviews" do
+      squatter = FactoryGirl.create(:abode, :unapproved)
+      expect(squatter).to respond_to(:abode_reviews)
+    end
   end
 end

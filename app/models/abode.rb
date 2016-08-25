@@ -7,12 +7,18 @@ class Abode < ApplicationRecord
 	      foreign_key: :submitted_by_id
   belongs_to :approved_by, class_name: "Admin", foreign_key: :approved_by_id
   has_many :abode_images, dependent: :destroy
-  accepts_nested_attributes_for :abode_images
+  has_many :abode_reviews
+  accepts_nested_attributes_for :abode_images, reject_if: :all_blank,
+    allow_destroy: true
   geocoded_by :location
   after_validation :geocode
   searchkick
 
   scope :approved, -> { where(approved: true) }
+
+  def main_image
+    self.abode_images.first unless self.abode_images.empty?
+  end
 
   validates :title, presence: true, length: { maximum: 30 }
   validates :location, presence: true
@@ -38,9 +44,6 @@ class Abode < ApplicationRecord
   end
 
   def self.search(query)
-
-    return nil if query.blank?
-
     search_definition = {
       query: {
         bool: {

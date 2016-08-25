@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :abode do
     trait :approved do
-      title Faker::Lorem.words.join(" ")
+      title "Less than 30 characters"
       description Faker::Lorem.paragraph
       location "32950-7123"
       residential false
@@ -10,7 +10,7 @@ FactoryGirl.define do
       approved true
     end    
     trait :unapproved do
-      title Faker::Lorem.words.join(" ")
+      title "Still Less than 30 characters"
       description Faker::Lorem.paragraph
       location "77625-9206"
       residential false
