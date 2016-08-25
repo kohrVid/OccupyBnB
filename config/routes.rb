@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  devise_scope :squatters do
+    devise_for :squatters, controllers: { 
+      sessions: "squatters/sessions",
+      registrations: "squatters/registrations",
+      passwords: "squatters/passwords",
+      confirmations: "squatters/confirmations",
+      omniauth_callbacks: "squatters/omniauth_callbacks" 
+    }
+  end
+
   root to: 'pages#index'
   get :abode_search, to: "pages#abode_search"
   get :search, to: "pages#search"
@@ -39,15 +49,6 @@ Rails.application.routes.draw do
     end
   end
 
-devise_scope :squatters do
-  devise_for :squatters, controllers: { 
-    sessions: "squatters/sessions",
-    registrations: "squatters/registrations",
-    passwords: "squatters/passwords",
-    confirmations: "squatters/confirmations",
-    omniauth_callbacks: "squatters/omniauth_callbacks" 
-  }
-end
   resources :abodes do
     resources :abode_images
   end
