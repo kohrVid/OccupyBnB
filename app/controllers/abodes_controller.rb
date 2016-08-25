@@ -21,7 +21,9 @@ class AbodesController < ApplicationController
   end
 
   def show
-    @abode = Abode.find(params[:id])
+    @abode = Abode.includes(:abode_reviews).find(params[:id])
+    @abode_review = AbodeReview.new
+    @reviews = @abode.abode_reviews.includes(:squatter).order("created_at DESC")
   end
 
   private

@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_squatter!
   before_action :set_squatter
   before_action :set_message, only: [:update, :show]
 

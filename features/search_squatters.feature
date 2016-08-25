@@ -18,7 +18,7 @@ Feature: Search Squatters
     And they type in Ros
     And they click "Search"
     Then there should be one squatter in the results named Roslind
-  
+
   Scenario: The squatter username search should be case-insensitive
     When they visit the search page
     And they click "Find another squatter"
