@@ -1,0 +1,3 @@
+var squatterReviews = $("#squatter-reviews");
+let squatterReviewsPartial = "<%= j(render partial: "squatter_reviews/squatter_review", locals: { squatter_review: @squatter_review } ) %>";
+squatterReviews.prepend(squatterReviewsPartial);

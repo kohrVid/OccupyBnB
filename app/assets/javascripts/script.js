@@ -7,7 +7,7 @@ $(document).ready(function () {
   $(".btn-primary").css("-webkit-filter", String(`hue-rotate(${ hue }deg)`));
   $("#main-logo").css("color", String(`hue-rotate(${ hue }deg)`));
 
-  $("#add-abode-review").click(function () {
+  $("#add-review").click(function () {
     $("#review-form").toggle();
   });
 });

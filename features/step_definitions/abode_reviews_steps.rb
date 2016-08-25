@@ -4,7 +4,7 @@ When(/^they write a review$/) do
 end
 
 When(/^they click on Add a review$/) do
-  find("#add-abode-review").click
+  find("#add-review").click
 end
 
 Then(/^they should see their review on the page$/) do

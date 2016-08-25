@@ -90,5 +90,15 @@ RSpec.describe Squatter, type: :model do
       squatter = FactoryGirl.create(:squatter, :first)
       expect(squatter).to respond_to(:abode_reviews)
     end
+
+     it "may have reviewed other squatters" do
+      squatter = FactoryGirl.create(:squatter, :first)
+      expect(squatter).to respond_to(:squatter_reviews_written)
+    end
+
+    it "may have reviews from other squatters" do
+      squatter = FactoryGirl.create(:squatter, :first)
+      expect(squatter).to respond_to(:reviews)
+    end
   end
 end

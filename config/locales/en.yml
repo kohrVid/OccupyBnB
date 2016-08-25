@@ -37,3 +37,7 @@ en:
     summary: "Summary"
     body: "Body"
     submit: "Submit abode review"
+  squatter_review:
+    summary: "Summary"
+    body: "Body"
+    submit: "Submit squatter review"
