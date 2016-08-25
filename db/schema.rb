@@ -15,6 +15,17 @@ ActiveRecord::Schema.define(version: 20160825085113) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "abode_comments", force: :cascade do |t|
+    t.integer  "squatters_id"
+    t.integer  "abodes_id"
+    t.string   "summary"
+    t.text     "body"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["abodes_id"], name: "index_abode_comments_on_abodes_id", using: :btree
+    t.index ["squatters_id"], name: "index_abode_comments_on_squatters_id", using: :btree
+  end
+
   create_table "abode_images", force: :cascade do |t|
     t.integer  "abode_id"
     t.string   "file_name"
