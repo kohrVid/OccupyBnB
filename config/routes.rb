@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       get :tos
     end
   end
-#=begin
+
   devise_scope :squatter do
     devise_for :squatters, controllers: { 
       sessions: "squatters/sessions",
@@ -18,16 +18,6 @@ Rails.application.routes.draw do
       omniauth_callbacks: "squatters/omniauth_callbacks" 
     }
   end
-#=end
-=begin
-    devise_for :squatters, controllers: { 
-      sessions: "sessions",
-      registrations: "registrations",
-      passwords: "passwords",
-      confirmations: "confirmations",
-      omniauth_callbacks: "omniauth_callbacks" 
-    }
-=end
 
   resources :squatters, only: [:index, :show] do
     member do
@@ -55,5 +45,4 @@ Rails.application.routes.draw do
   end
   resources :abode_reviews
   resources :squatter_reviews
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
