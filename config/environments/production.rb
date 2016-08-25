@@ -72,5 +72,5 @@ Rails.application.configure do
   end
 
   config.active_record.dump_schema_after_migration = false
-  Elasticsearch::Model.client = Elasticsearch::Client.new host: ENV['BONSAI_URL']
+  Elasticsearch::Model.client = Elasticsearch::Client.new host: ENV['SEARCHBOX_SSL_URL']
 end
