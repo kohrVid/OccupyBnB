@@ -10,16 +10,17 @@ Rails.application.routes.draw do
       get :tos
     end
   end
-
-#  devise_scope :squatter do
+=begin
+=end
+=begin
     devise_for :squatters, controllers: { 
-      sessions: "squatters/sessions",
-      registrations: "squatters/registrations",
-      passwords: "squatters/passwords",
-      confirmations: "squatters/confirmations",
-      omniauth_callbacks: "squatters/omniauth_callbacks" 
+      sessions: "sessions",
+      registrations: "registrations",
+      passwords: "passwords",
+      confirmations: "confirmations",
+      omniauth_callbacks: "omniauth_callbacks" 
     }
- # end
+=end
 
   resources :squatters, only: [:index, :show] do
     member do
@@ -38,6 +39,15 @@ Rails.application.routes.draw do
     end
   end
 
+devise_scope :squatters do
+  devise_for :squatters, controllers: { 
+    sessions: "squatters/sessions",
+    registrations: "squatters/registrations",
+    passwords: "squatters/passwords",
+    confirmations: "squatters/confirmations",
+    omniauth_callbacks: "squatters/omniauth_callbacks" 
+  }
+end
   resources :abodes do
     resources :abode_images
   end
