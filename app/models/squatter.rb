@@ -6,7 +6,6 @@ class Squatter < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, 
 	 :confirmable, :omniauthable, omniauth_providers: [:facebook, :twitter, :instagram]
-=begin
   has_many :abode_reviews
   has_many :identities, dependent: :destroy
   has_many :submitted_abodes, class_name: 'Abode', foreign_key: :submitted_by_id
@@ -14,7 +13,7 @@ class Squatter < ApplicationRecord
   has_many :sent_messages, class_name: 'Message', foreign_key: :sender_id
   has_many :squatter_reviews_written, class_name: 'SquatterReview', foreign_key: :reviewer_id
   has_many :reviews, class_name: 'SquatterReview', foreign_key: :reviewee_id
-=end
+
   geocoded_by :location
   after_validation :geocode
   searchkick

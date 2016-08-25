@@ -1,5 +1,5 @@
 class SquattersController < ApplicationController
-  before_action :authenticate_squatter!
+#  before_action :authenticate_squatter!
   before_action :find_squatter, only: [:show, :submissions_pending_approval]
   
   def index
