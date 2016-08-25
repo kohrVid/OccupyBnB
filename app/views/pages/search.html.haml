@@ -1,10 +1,10 @@
 %main
   %h1 Search
   .row
-    .col--3-9.col--mob-1-4.m-0-top
+    .col--4-9.col--mob-4-4.m-1-bottom
       = render "pages/abode_search_form"
 
-    %section.col--6-9.col--mob-3-4
+    %section.col--5-9.col--mob-4-4.m-0-top
       - unless @total_results.nil?
         .result-count
           Found 
@@ -14,14 +14,3 @@
           - @search_results.each do |result|
             %li
               = render partial: "abodes/abode", locals: { abode: Abode.find(result.id) }
-
-      - unless @total_squatters.nil?
-        .result-count
-          Found 
-          %span.result-count
-            = "#{@total_squatters} #{"result".pluralize(@total_squatters)}."
-        %ul.no-bullet
-          - @squatter_search_results.each do |result|
-            %li
-              = link_to result.username, squatter_path(result)
-

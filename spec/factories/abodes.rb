@@ -10,7 +10,7 @@ FactoryGirl.define do
       approved true
     end    
     trait :unapproved do
-      title "Less than 30 characters"
+      title "Still Less than 30 characters"
       description Faker::Lorem.paragraph
       location "77625-9206"
       residential false
