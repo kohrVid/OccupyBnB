@@ -1,0 +1,9 @@
+%article
+  %h3= squatter_review.summary
+  %small 
+    Reviewed by
+    = link_to squatter_review.reviewer.username, squatter_review.reviewer
+    on
+    = squatter_review.created_at.strftime("%d %B %y at %H:%M")
+  %p
+    = squatter_review.body

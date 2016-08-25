@@ -57,14 +57,48 @@ RSpec.describe Squatter, type: :model do
     end
   end
 
+  describe "geocoding" do
+    it "automatically geocodes the model on save" do
+      squatter = FactoryGirl.create(:squatter, :second, location: "West Ham, London")
+      expect(squatter.latitude).to eq(51.538265.to_d)
+      expect(squatter.longitude).to eq(0.014525.to_d)
+    end
+  end
+ 
   describe "associations" do  
     it "may have an identity" do
       squatter = FactoryGirl.create(:squatter, :first)
       expect(squatter).to respond_to(:identities)
     end
+    
     it "may have submitted abodes" do
       squatter = FactoryGirl.create(:squatter, :first)
       expect(squatter).to respond_to(:submitted_abodes)
+    end
+    
+    it "may have received messages" do
+      squatter = FactoryGirl.create(:squatter, :first)
+      expect(squatter).to respond_to(:received_messages)
+    end
+
+    it "may have sent messages" do
+      squatter = FactoryGirl.create(:squatter, :first)
+      expect(squatter).to respond_to(:sent_messages)
+    end
+
+    it "may have abode reviews" do
+      squatter = FactoryGirl.create(:squatter, :first)
+      expect(squatter).to respond_to(:abode_reviews)
+    end
+
+     it "may have reviewed other squatters" do
+      squatter = FactoryGirl.create(:squatter, :first)
+      expect(squatter).to respond_to(:squatter_reviews_written)
+    end
+
+    it "may have reviews from other squatters" do
+      squatter = FactoryGirl.create(:squatter, :first)
+      expect(squatter).to respond_to(:reviews)
     end
   end
 end

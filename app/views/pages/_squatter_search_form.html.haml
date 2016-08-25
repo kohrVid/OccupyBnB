@@ -1,0 +1,17 @@
+%section.m-1-bottom
+  .btn.btn-primary.anchor-text-no-underline.m-1-bottom.no-wrap
+    Find another squatter
+  .squatter-search.m-1-top
+    = form_tag squatter_search_path, method: :get do
+      %fieldset
+        %label#Search_Username= t("squatter.search")
+        = text_field_tag "[search_username]", nil,
+          "aria-labelledby": "Search_Username", tabindex: 1
+      %fieldset
+        = submit_tag "Search", class: "btn btn-primary"
+
+%section.m-2-top
+  = link_to "Find an abode", search_path,
+    class: "btn btn-primary anchor-text-no-underline m-1-bottom no-wrap"
+
+

@@ -20,12 +20,19 @@ class AbodesController < ApplicationController
     end
   end
 
+  def show
+    @abode = Abode.includes(:abode_reviews).find(params[:id])
+    @abode_review = AbodeReview.new
+    @reviews = @abode.abode_reviews.includes(:squatter).order("created_at DESC")
+  end
+
   private
     def abode_params
       params.require(:abode).permit(:title, :location, :description,
-				    :residential, :submitted_by_id,
+				    :residential, :submitted_by_id, :sleeps_number,
 				    :approved, :approved_by_id, :approved_at,
-				    abode_images_attributes: [:id, :file_name]
+				    abode_images_attributes: [:id, :file_name, 
+				    :_destroy]
 				   )
     end
 end

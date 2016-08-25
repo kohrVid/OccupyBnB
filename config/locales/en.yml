@@ -1,14 +1,43 @@
 en:
   hello: "Hello world"
+  any: "Any"
   abode:
     title: "Title"
     images: "Images"
+    images_add: "Add image"
+    images_remove: "Remove image"
     location: "Location"
     description: "Description"
     residential: "Residential?"
     approved: "Approved?"
+    sleeps_number: "Sleeps"
+    select_sleeps: "Select the sleeps number"
+    how_many_sleeps: "How many squatters could sleep here?"
+    date_added: "Date added to the site"
     submit: "Submit abode"
+    distance: "Distance in km"
+    residential_only: "Residential only?"
+    non_residential_only: "Non-Residential only?"
+    add_review: "Add a review"
     new:
       success: "Abode has been subimitted for approval"
       error: "An error has prevented this abode from being saved"
     submitted_at: "Submitted at"
+  squatter:
+    search: "Search by username"
+  message:
+    sender: "Sender"
+    recipient: "Recipient"
+    title: "Title"
+    body: "Body"
+    submit: "Send"
+    sent_items: "Sent Items"
+    inbox: "Inbox"
+  abode_review:
+    summary: "Summary"
+    body: "Body"
+    submit: "Submit abode review"
+  squatter_review:
+    summary: "Summary"
+    body: "Body"
+    submit: "Submit squatter review"

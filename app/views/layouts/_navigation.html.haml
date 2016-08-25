@@ -1,0 +1,19 @@
+%nav
+  %ul.inline-list.no-bullet.anchor-text-no-underline(role="menu")
+    %li
+      = link_to "Home", root_path
+    - if current_squatter
+      %li
+        = link_to "Find a new abode!", search_path
+      %li
+        = link_to(inbox_squatter_messages_path(current_squatter),
+          "aria-label": "Inbox", title: "Inbox", id: "inbox") do
+          %i.fa.fa-inbox
+      %li
+        = link_to "Log Out", destroy_squatter_session_path,
+          method: :delete
+    - else
+      %li
+        = link_to "Sign Up", new_squatter_registration_path
+      %li
+        = link_to "Log In", new_squatter_session_path

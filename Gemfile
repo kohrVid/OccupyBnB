@@ -11,9 +11,9 @@ gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
+gem 'underscore-rails'
 gem 'sprockets', '>=3.0.0.beta'
 gem 'sprockets-es6'
-gem 'ejs'
 gem 'haml'
 gem 'nokogiri'
 gem 'devise', git: 'https://github.com/plataformatec/devise.git'
@@ -27,6 +27,11 @@ gem 'humanize_boolean'
 gem 'carrierwave', git: 'https://github.com/carrierwaveuploader/carrierwave'
 gem 'mini_magick', '~> 3.8.0'
 gem 'fog'
+gem 'geocoder'
+gem 'elasticsearch-model', git: 'https://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-rails', git: 'https://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'searchkick'
+gem 'cocoon'
 
 # Use Capistrano for deployment
  gem 'capistrano-rails'#, group: :development
@@ -46,6 +51,7 @@ group :development, :test do
   gem 'faker'
   gem 'rails-controller-testing'
   gem 'capybara'
+  gem 'jasmine'
 end
 
 group :development do

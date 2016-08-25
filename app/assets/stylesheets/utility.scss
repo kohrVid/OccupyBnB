@@ -16,3 +16,15 @@
     display: inline;
   }
 }
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.hidden {
+  display: none;
+}
+
+.fake-link:hover {
+  cursor:pointer;
+}

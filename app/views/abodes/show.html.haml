@@ -1,0 +1,27 @@
+%main(itemscope itemtype="https://schema.org/Place")
+  %section
+    %h1= @abode.title
+    %p(itemprop="photo")
+      - unless @abode.abode_images.empty?
+        = image_tag @abode.abode_images[0].file_name.url,
+          width: "120rem", alt: "Abode Image"
+    %p(itemprop="address")= @abode.location
+    %p= @abode.description
+    %p
+      %strong= t("abode.how_many_sleeps")
+      = @abode.sleeps_number
+    %p
+      %strong= t("abode.residential") 
+      = @abode.residential.humanize
+    %p
+      %strong= t("abode.date_added")
+      = @abode.approved_at
+
+  %section
+    %h2 Reviews
+    %span.fake-link#add-review Add a review
+    #review-form.hidden
+      = render partial: "abode_reviews/form", locals: { abode: @abode, squatter: current_squatter }
+    #squatter-reviews
+      - @reviews.each do |review|
+        = render partial: "abode_reviews/abode_review", locals: { abode_review: review }

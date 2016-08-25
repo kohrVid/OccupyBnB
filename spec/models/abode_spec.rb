@@ -23,12 +23,32 @@ RSpec.describe Abode, type: :model do
       abode = FactoryGirl.build(:abode, :unapproved, location: "")
       expect(abode).to_not be_valid
     end
+
+    describe "geocoding" do
+      it "automatically geocodes the model on save" do
+	abode = FactoryGirl.create(:abode, :unapproved, location: "West Ham, London")
+	expect(abode.latitude).to eq(51.538265.to_d)
+	expect(abode.longitude).to eq(0.014525.to_d)
+      end
+    end
+  end
+  
+  describe "sleeps_number" do
+    it "should be present" do
+      abode = FactoryGirl.build(:abode, :unapproved, sleeps_number: "")
+      expect(abode).to_not be_valid
+    end
   end
   
   describe "associations" do
     it "should have a submitted_by ID" do
       abode = FactoryGirl.build(:abode, :unapproved, submitted_by: nil)
       expect(abode).to_not be_valid
+    end
+    
+    it "may have abode reviews" do
+      squatter = FactoryGirl.create(:abode, :unapproved)
+      expect(squatter).to respond_to(:abode_reviews)
     end
   end
 end
