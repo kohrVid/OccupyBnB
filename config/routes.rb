@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_scope :squatters do
+#  devise_scope :squatter do
     devise_for :squatters, controllers: { 
       sessions: "squatters/sessions",
       registrations: "squatters/registrations",
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       confirmations: "squatters/confirmations",
       omniauth_callbacks: "squatters/omniauth_callbacks" 
     }
-  end
+ # end
 
   resources :squatters, only: [:index, :show] do
     member do
