@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   devise_scope :squatter do
-    devise_for :squatters, controllers: { 
+    devise_for :squatter, controllers: { 
       sessions: "squatters/sessions",
       registrations: "squatters/registrations",
       passwords: "squatters/passwords",
