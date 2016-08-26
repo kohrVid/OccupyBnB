@@ -21,5 +21,10 @@ module OccupyBnB
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.active_record.raise_in_transactional_callbacks = true 
+    config.assets.enabled = true
+    config.assets.initialized_on_precompile = true
+    config.action_view.embed_authenticity_token_in_remote_forms = true
+    config.action_controller.perform_caching = true
   end
 end
