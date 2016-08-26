@@ -3,10 +3,10 @@ class Squatter < ApplicationRecord
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
   include Elasticsearch::Model::Indexing
-  extend Devise::Models
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, 
 	 :confirmable, :omniauthable, omniauth_providers: [:facebook, :twitter, :instagram]
+
   has_many :abode_reviews
   has_many :identities, dependent: :destroy
   has_many :submitted_abodes, class_name: 'Abode', foreign_key: :submitted_by_id

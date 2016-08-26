@@ -36,15 +36,15 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "OccupyBnB_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { 
     host: Rails.application.secrets.mailer_host, 
     from: Rails.application.secrets.mailer_from
   }
   Rails.application.routes.default_url_options[:host] = Rails.application.secrets.mailer_host
+  
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
@@ -52,8 +52,7 @@ Rails.application.configure do
     authentication: :plain,
     enable_starttls_auto: true,
     user_name: Rails.application.secrets.gmail_username,
-    password: Rails.application.secrets.gmail_password,
-    openssl_verify_mode: 'none'
+    password: Rails.application.secrets.gmail_password
   }
 
 
