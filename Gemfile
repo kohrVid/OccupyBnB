@@ -11,9 +11,8 @@ gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
-gem 'underscore-rails'
 gem 'sprockets', '>=3.0.0.beta'
-gem 'sprockets-es6'
+#gem 'sprockets-es6'
 gem 'haml'
 gem 'nokogiri'
 gem 'devise', git: 'https://github.com/plataformatec/devise.git'
@@ -32,6 +31,7 @@ gem 'elasticsearch-model', git: 'https://github.com/elasticsearch/elasticsearch-
 gem 'elasticsearch-rails', git: 'https://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'searchkick'
 gem 'cocoon'
+gem 'owlcarousel-rails'
 
 # Use Capistrano for deployment
  gem 'capistrano-rails'#, group: :development
@@ -65,5 +65,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
+  gem 'rails_12factor'
   gem 'aws-sdk'
 end

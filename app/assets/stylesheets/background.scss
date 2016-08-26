@@ -16,9 +16,37 @@ nav {
   background-color: $charcoal;
   z-index: 10;
 }
-/*
-#search-accordion .ui-accordion-header{
-  background-image:none;
-  background-color: $primary-colour;
+
+footer {
+  bottom: 0;
+  height: 5rem;
+  background-color: $charcoal;
+}
+
+
+.owl-wrapper-outer {
+  height: 20rem !important;
+  margin: 0;
+  top: 0; 
+}
+
+.owl-controls {
+  display: none;
+}
+
+#carousel {
+  height: 6em !important;
   color: $white;
-}*/
+  font-size: 3rem;
+  top: 0;
+  .owl-item {
+    position: relative;
+    margin-top: -0.5rem;
+    height: 22rem;
+  }
+  .item {
+    background-size: 50% !important;
+    height: 19rem;
+    width: 200%;
+  }
+}

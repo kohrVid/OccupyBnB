@@ -1,2 +1,7 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+%main
+  = render partial: "pages/carousel"
+  .row
+    %section.m-2-top
+      %big
+        = link_to "Sign up", new_squatter_registration_path
+        today to find a disused home near you!!
