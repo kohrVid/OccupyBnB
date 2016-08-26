@@ -1,0 +1,16 @@
+%footer.p-2-top.p-1-bottom.m-auto
+  .row.align-centre
+    .col--10-12-offset-1.col--mob-4-4
+      %strong Disclaimer: In the UK, squatting in residential buildings is illegal. It can lead to 6 months in prison, a £5,000 fine or both.
+  .row.align-centre
+    %ul.inline-list.no-bullet.col--10-12.col--mob-4-4(role="menu")
+      %li.p-1-all
+        = link_to "Help", help_pages_path,
+          class: "anchor-text-no-underline"
+      %li.p-1-all
+        = link_to "Terms and Conditions", tos_pages_path,
+          class: "anchor-text-no-underline"
+      %li.p-1-all
+        = link_to "Privacy Policy", privacy_pages_path,
+          class: "anchor-text-no-underline"
+

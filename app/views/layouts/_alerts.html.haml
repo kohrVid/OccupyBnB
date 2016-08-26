@@ -4,7 +4,7 @@
   = alert
   - [@abode, @squatter].each do |model|
     - @object = model unless !model.present?
-  - if @object.present? && @object.errors.any?
+  - if !notice.present? && alert.present? && @object.present? && @object.errors.any?
     %strong The form contains #{"error".pluralize(@object.errors.count)}.
     %ul
       - @object.errors.full_messages.each do |msg|

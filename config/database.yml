@@ -20,6 +20,7 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  port: 5432
 
 development:
   <<: *default
@@ -80,8 +81,9 @@ test: &test
 #
 production:
   <<: *default
-  database: OccupyBnB_production
-  username: OccupyBnB
+  database: <%= ENV['OCCUPYBNB_DATABASE'] %>
+  host: <%= ENV['OCCUPYBNB_DATABASE_HOST'] %>
+  username: <%= ENV['OCCUPYBNB_DATABASE_USERNAME'] %>
   password: <%= ENV['OCCUPYBNB_DATABASE_PASSWORD'] %>
 
 cucumber:
