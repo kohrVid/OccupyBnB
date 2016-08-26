@@ -3,6 +3,7 @@ class Squatter < ApplicationRecord
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
   include Elasticsearch::Model::Indexing
+  extend Devise::Models
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, 
 	 :confirmable, :omniauthable, omniauth_providers: [:facebook, :twitter, :instagram]
