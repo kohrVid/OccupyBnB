@@ -1,4 +1,11 @@
-.field input {
+fieldset {
+  border: 0;
+  label {
+    font-weight: bold;
+  }
+}
+
+.field input, textarea, select {
   border: 2px solid #dadada;
   border-radius: 0.4rem;
   &:focus { 

@@ -16,9 +16,9 @@ nav {
   background-color: $charcoal;
   z-index: 10;
 }
-/*
-#search-accordion .ui-accordion-header{
-  background-image:none;
-  background-color: $primary-colour;
-  color: $white;
-}*/
+
+footer {
+  bottom: 0;
+  height: 5rem;
+  background-color: $charcoal;
+}
