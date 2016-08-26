@@ -1,2 +1,57 @@
-<h1>Pages#help</h1>
-<p>Find me in app/views/pages/help.html.erb</p>
+%article
+  %h1 Squatters Information
+
+  %p
+    Different countries and jurisdictions may have different laws regarding squatting. Help and legal information regarding your rights can be found in the links below (arranged by country for your convenience):
+
+  %section
+    %h2 General
+    %ul
+      %li= link_to "WikiHow - Squat in Abandoned Property", 
+        "http://www.wikihow.com/Squat-in-Abandoned-Property", title: "WikiHow"
+  
+  %section
+    %a#brazil
+      %h2 Brazil
+    %ul
+      %li= link_to "CatComm - Adverse Possession",
+        "http://catcomm.org/adverse-possession/", title: "CatComm - Adverse Possession"
+      %li= link_to "RioOnWatch - Housing Rights", 
+        "http://www.rioonwatch.org/?tag=housing-rights", 
+        title: "RioOnWatch - Housing Rights"
+
+  %section
+    %a#netherlands
+      %h2 Netherlands
+    %ul
+      %li= link_to "The Logic of Urban Squatting", "http://repub.eur.nl/pub/25656",
+        title: "The Logic of Urban Squatting"
+
+  %section
+    %a#uk
+      %h2 UK
+    %ul
+      %li= link_to "Squatter.org.uk", "www.squatter.org.uk",
+        title: "Squatter.org.uk"
+      %li= link_to "GOV.UK - Overview", 
+        "https://www.gov.uk/squatting-law/overview", title: "GOV.UK - Overview" 
+      %li= link_to "GOV.UK - Land Registry", 
+        "https://www.gov.uk/search-property-information-land-registry", 
+        title: "GOV.UK - Land Registry"
+      %li= link_to "GOV.UK - Homelessness Help", 
+        "https://www.gov.uk/homelessness-help-from-council", 
+        title: "GOV.UK - Homelessness Help"
+      %li= link_to "Shelter - England", 
+        "http://england.shelter.org.uk/get_advice/homelessness/squatting",
+        title: "Shelter - England"
+      %li= link_to "Shelter - Wales",
+        "http://www.sheltercymru.org.uk/get-advice/get-advice-online/finding-a-place-to-live/squatting/",
+        title: "Shelter - Wales"
+
+  %section
+    %a#us
+      %h2 US
+    %ul
+      %li= link_to "Wikipedia - Squatting in the United States",
+        "https://en.wikipedia.org/wiki/Squatting_in_the_United_States",
+        title: "Wikipedia"
