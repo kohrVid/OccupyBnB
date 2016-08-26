@@ -61,7 +61,7 @@ Rails.application.configure do
 
   config.active_support.deprecation = :notify
 
-  config.log_formatter = ::Logger::Formatter.new
+  config.log_formatter = ActionSupport::Logger::Formatter.new
 
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
