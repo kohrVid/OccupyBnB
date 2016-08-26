@@ -1,15 +1,6 @@
 module ApplicationHelper
-=begin
-  def devise_mapping
-    Devise.mappings[:squatter]
+  def front_page_images
+    [{ url: AbodeImage.first.file_name.url, slogan: "Looking for a new place to live for free?"  },
+     { url: AbodeImage.second.file_name.url, slogan: "Occupy your dream abode today!" }]
   end
-
-  def resource_name
-      devise_mapping.name
-  end
-
-  def resource_class
-      devise_mapping.to
-  end
-=end
 end

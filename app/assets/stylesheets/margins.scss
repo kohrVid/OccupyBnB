@@ -1,9 +1,18 @@
-.m-auto {
+.m-auto-all {
   margin: auto;
+}
+
+.m-0-all {
+  margin: 0;
 }
 
 .m-1-all {
   margin: 1rem;
+}
+
+.m--2-top{
+  top: 0;
+  margin: -2rem;
 }
 
 .m-0-top {

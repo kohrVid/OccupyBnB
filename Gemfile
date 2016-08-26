@@ -31,6 +31,7 @@ gem 'elasticsearch-model', git: 'https://github.com/elasticsearch/elasticsearch-
 gem 'elasticsearch-rails', git: 'https://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'searchkick'
 gem 'cocoon'
+gem 'owlcarousel-rails'
 
 # Use Capistrano for deployment
  gem 'capistrano-rails'#, group: :development
