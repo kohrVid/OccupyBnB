@@ -3,7 +3,7 @@
     Find another squatter
   .squatter-search.m-1-top
     = form_tag squatter_search_path, method: :get do
-      %fieldset
+      %fieldset.field
         %label#Search_Username= t("squatter.search")
         = text_field_tag "[search_username]", nil,
           "aria-labelledby": "Search_Username", tabindex: 1

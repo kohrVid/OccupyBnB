@@ -1,0 +1,6 @@
+.row
+  #carousel.owl-carousel.owl-theme.col--12-12.col--mob-4-4.m-auto-all
+    - front_page_images.each do |image|
+      .item{ style: "background: url(#{image[:url]}) no-repeat;" }
+        .col--6-12.col--mob-2-4
+          %h2= image[:slogan]

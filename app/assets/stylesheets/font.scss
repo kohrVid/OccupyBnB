@@ -41,10 +41,6 @@
   }
 }
 
-.text-centre {
-  text-align: center;
-}
-
 .anchor-text-no-underline {
   text-decoration: none;
   &:link, &:visited, &:hover, &:active { 
@@ -52,11 +48,16 @@
   }
 }
 
+a:hover { 
+  font-weight: bold;
+  font-style: underline;
+}
+
 body {
   font-family: $sans-serif;
 }
 
-nav {
+nav, footer {
   color: $white;
   @include anchor-text($white);
 }
