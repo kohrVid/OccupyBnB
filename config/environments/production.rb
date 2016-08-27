@@ -38,21 +38,21 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { 
-    host: Rails.application.secrets.mailer_host, 
-    from: Rails.application.secrets.mailer_from
+    host: ENV["MAILER_HOST"], #Rails.application.secrets.mailer_host, 
+    from: ENV["MAILER_FROM"]#Rails.application.secrets.mailer_from
   }
-  Rails.application.routes.default_url_options[:host] = Rails.application.secrets.mailer_host
+  Rails.application.routes.default_url_options[:host] = ENV["MAILER_HOST"]#Rails.application.secrets.mailer_host
   
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    domain: Rails.application.secrets.gmail_domain,
+    domain: ENV["GMAIL_DOMAIN"],#Rails.application.secrets.gmail_domain,
     authentication: :plain,
     enable_starttls_auto: true,
-    user_name: Rails.application.secrets.gmail_username,
-    password: Rails.application.secrets.gmail_password
+    user_name: ENV["GMAIL_USERNAME"],#Rails.application.secrets.gmail_username,
+    password: ENV["GMAIL_PASSWORD"]#Rails.application.secrets.gmail_password
   }
 
 
