@@ -6,8 +6,9 @@ Progress made in the first two weeks (12 days) can be found [here on the demo si
 
 [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/1786423)
 
-Test Coverage: 97.19% covered at 2.3 hits/line
-Code to Test ratio: 1:1.1
+Test Coverage: [97.19% covered at 2.3 hits/line](https://github.com/kohrVid/OccupyBnB/raw/master/code_coverage_2016-08-26%2010:11:14.png)
+
+Code to Test ratio: [1:1.1](https://github.com/kohrVid/OccupyBnB/raw/master/rake_stats_2016-08-26%2010:11:58.png)
 
 ###Gems used:
 * haml
@@ -32,7 +33,7 @@ Code to Test ratio: 1:1.1
 * factory_girl_rails
 * simplecov
 * cucumber-rails
-* database_claeaner
+* database_cleaner
 * capybara
 * launchy
 
