@@ -38,13 +38,14 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { 
-    host: ENV["MAILER_HOST"], #Rails.application.secrets.mailer_host, 
-    from: ENV["MAILER_FROM"]#Rails.application.secrets.mailer_from
+    host: ENV["MAILER_HOST"]#, #Rails.application.secrets.mailer_host, 
+#    from: ENV["MAILER_FROM"]#Rails.application.secrets.mailer_from
   }
   Rails.application.routes.default_url_options[:host] = ENV["MAILER_HOST"]#Rails.application.secrets.mailer_host
   
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
+  config.action_mailer.default :charset => "utf-8" 
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
