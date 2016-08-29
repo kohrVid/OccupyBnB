@@ -17,7 +17,7 @@ class Squatter < ApplicationRecord
 
   geocoded_by :location
   after_validation :geocode
-  searchkick
+#  searchkick
   
   VALID_EMAIL_REGEX = /\A[^\.]+[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i 
   validates :username, presence: true, uniqueness: true
