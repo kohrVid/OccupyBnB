@@ -7,13 +7,12 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '238cb86857b771de866596d9db147f0bf61b22c449a04b6fbece6a2f2e5ef1820c6e702e459506f91c5b5f0a6549d579a5755532df2e1a48a320757b3261a8a1'
-  config.secret_key = '<%= ENV["SECRET_KEY_BASE"] %>' if Rails.env == 'production'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = ENV["MAILER_FROM"]#Rails.application.secrets.mailer_from
+  config.mailer_sender = Rails.application.secrets.mailer_from
 
   # Configure the class responsible to send e-mails.
    config.mailer = 'Devise::Mailer'
@@ -248,9 +247,9 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :twitter, ENV["TWITTER_APP_ID"], ENV["TWITTER_APP_SECRET"]# Rails.application.secrets.twitter_app_id, Rails.application.secrets.twitter_app_secret
-  config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"]# Rails.application.secrets.facebook_app_id, Rails.application.secrets.facebook_app_secret
-  config.omniauth :instagram,  ENV["INSTAGRAM_APP_ID"], ENV["INSTAGRAM_APP_SECRET"]# Rails.application.secrets.instagram_app_id, Rails.application.secrets.instagram_app_secret
+  config.omniauth :twitter, Rails.application.secrets.twitter_app_id, Rails.application.secrets.twitter_app_secret
+  config.omniauth :facebook, Rails.application.secrets.facebook_app_id, Rails.application.secrets.facebook_app_secret
+  config.omniauth :instagram, Rails.application.secrets.instagram_app_id, Rails.application.secrets.instagram_app_secret
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
