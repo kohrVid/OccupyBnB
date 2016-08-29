@@ -12,7 +12,7 @@ class Abode < ApplicationRecord
     allow_destroy: true
   geocoded_by :location
   after_validation :geocode
-#  searchkick
+  searchkick
 
   scope :approved, -> { where(approved: true) }
 
