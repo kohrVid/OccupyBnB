@@ -1,6 +1,6 @@
     source 'https://rubygems.org'
     
-    gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+    gem 'rails', '~> 5.2.0'
     gem 'pg', '~> 0.18'
     gem 'puma', '~> 3.0'
     gem 'sass-rails', '~> 5.0'
@@ -27,9 +27,10 @@
     gem 'mini_magick', '~> 3.8.0'
     gem 'fog'
     gem 'geocoder'
-    gem 'elasticsearch-model', git: 'https://github.com/elasticsearch/elasticsearch-rails.git'
-    gem 'elasticsearch-rails', git: 'https://github.com/elasticsearch/elasticsearch-rails.git'
-    gem 'searchkick'
+    gem 'elasticsearch-model', '0.1.9'
+    gem 'elasticsearch-rails', '0.1.9'
+    gem 'elasticsearch', '2.0'
+    gem 'searchkick', '1.3.3'
     gem 'cocoon'
     gem 'owlcarousel-rails'
     
