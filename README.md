@@ -10,7 +10,8 @@ Test Coverage: [97.19% covered at 2.3 hits/line](https://github.com/kohrVid/Occu
 
 Code to Test ratio: [1:1.1](https://github.com/kohrVid/OccupyBnB/raw/master/rake_stats_2016-08-26%2010:11:58.png)
 
-###Gems used:
+### Gems used:
+
 * haml
 * devise
 * omniauth
@@ -36,5 +37,3 @@ Code to Test ratio: [1:1.1](https://github.com/kohrVid/OccupyBnB/raw/master/rake
 * database_cleaner
 * capybara
 * launchy
-
-
